@@ -75,7 +75,7 @@ psycopg2
 
 First one installs Django framework, second one installs PostgreSQL adapter required for Python. 
 
-This produces a Docker image which you can ship. But this still needs all the configuration for production. My goal was to automate everything. So I used [Docker Compose](https://docs.docker.com/compose/overview/) which is a tool used to define and run multi-container applications with Docker. My goal was running Python Web + PostgreSQL containers together. So that fits in multi-container criteria.
+This produces a Docker image which you can ship. But this still needs all the configuration for production. My goal was to automate everything. So I used [Docker Compose](https://docs.docker.com/compose/overview/) which is a tool used to define and run multi-container applications with Docker. My goal was running Python Web+PostgreSQL containers together. So that fits in multi-container criteria.
 
 For that purpose, you write a ```docker-compose.yml``` file. Explaining details is out of scope of this post and it is best to follow [official docs](https://docs.docker.com/compose/overview/). 
 
