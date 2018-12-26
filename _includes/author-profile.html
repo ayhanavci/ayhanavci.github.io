@@ -72,7 +72,20 @@
           </a>
         </li>
       {% endif %}
-
+      {% if author.pm %}
+      <li>
+        <a href="https://www.projectmanagement.com/profile/{{ author.pm }}" itemprop="sameAs">
+          <i class="fas fa-fw fa-project-diagram" aria-hidden="true"></i> Project Management
+        </a>
+      </li>
+      {% endif %}
+      {% if author.docker %}
+      <li>
+        <a href="https://hub.docker.com/r/{{ author.docker }}" itemprop="sameAs">
+          <i class="fab fa-docker" aria-hidden="true"></i> Docker
+        </a>
+      </li>
+      {% endif %}
       {% if author.keybase %}
         <li>
           <a href="https://keybase.io/{{ author.keybase }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
