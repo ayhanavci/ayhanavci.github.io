@@ -7,7 +7,7 @@ main:
   #- title: "Collections"
   #  url: /collection-archive/
   - title: "Posts"
-    url: /tag-archive/
+    url: /
   #- title: "Posts by Tag"
   #  url: /tags/
   - title: "Past Works"
