@@ -59,7 +59,7 @@ Architecture pattern is a reusable solution to a commonly occurring problem in s
 
 Various architecture patterns are:
 
-* Monolithic: The software consists of a single application usually whole code in a single project and one deployment per machine.
+* Monolithic: The software is composed in one piece, with tightly coupled modules.
 * Layered: Same as monolithic but the application is divided into components, developed in a horizontal fashion. The layers usually only communicate with the adjacent components. Great for embedded.
 * N-Tier: Similar to layered. But the components can run on different machines as different instances. Most typical is 3-tiered architecture with Presentation - Business - Data layers.
 * Event driven architecture: Event driven defines the communication model between components of the software. Events could be in the form of user events, socket events, IO completion ports, pipes etc. Event driven architecture could be in Broker pattern or in Mediator pattern. Broker pattern provides a medium in which the components can talk to each other but doesn't interfere with the business logic. Mediator pattern usually includes a controller which orchestrates events between components.
