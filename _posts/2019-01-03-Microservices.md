@@ -197,10 +197,13 @@ User Personas:
 
 Features:
 
-1. Shop
-2. View Order Status
-3. View User Profile
-4. Get Invoice
+1. View Products
+2. Shop
+3. View Order Status
+4. View User Profile
+5. Get Invoice
+6. Modify products, prices, stocks
+7. Modify user credits
 
 | User Story | Acceptance Criteria  |
 | ---------- | -------------------- |
