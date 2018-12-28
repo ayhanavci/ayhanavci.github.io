@@ -145,15 +145,33 @@ There is a central service responsible solely for coordination of other services
 
 ## Containers
 
-(TODO)
+Containers are brilliant technology that fits microservices architecture like a glove. From Docker website:
+Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications.
+In my implementation, each and every database, tool, web service and consumer is encapsulated inside a docker container.
+
+### RESTful Web Services
+
+Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. In my implementation, web services provide web services with GET and POST methods only accepting and producing Json data.
 
 ## Platform Agnostic Integration
 
-(TODO)
+In microservices, it is important to be flexible and dynamic in your continuous development and integration. With that in mind, I designed my development environment so that:
 
-### REST Services
+* Any module can be implemented in any programming language as long as the established communication is satisfied.
 
-(TODO)
+* All services provide Rest API with Json objects.
+
+* The communication of the Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
+
+* Any module can use whatever query database it wants to.
+
+* There is a single Event Store, modules send write requests to this event store through Event Bus. So they don't need to know how, when and where the data is written.
+
+* All modules are dockerized with Dockerfile and Docker Compose file provided. So they can be run on any host machine without having to know anything about it.
+
+* All modules have a defined Docker network name. So they have their own network in which they communicate with each other. The host network is irrelevant as long as Docker runs on it.
+
+To demonstrate that, I have implemented web services and consumers on a wide variety of platforms. The full list will be given below.
 
 # The Software
 
