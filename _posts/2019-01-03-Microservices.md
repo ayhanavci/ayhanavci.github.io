@@ -38,7 +38,7 @@ I have been exploring software architecture patterns, and paid some attention to
 
 * Lean, proof of concept grade source code as opposed to production grade.
 
-* Keep the business model simple. This is not about business domain.
+* Keep the business model simple. This is about the technology, not the business domain.
 
 * Use wide variety of technologies, programming languages to demonstrate the atomic and flexible nature of microservices. 
 
