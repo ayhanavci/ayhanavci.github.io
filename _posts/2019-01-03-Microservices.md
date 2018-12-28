@@ -30,7 +30,7 @@ tags:
 
 ## Introduction
 
-I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are.I do not intend to explain everything about microservices. Just some topics and summaries. This is not a theoric article but I am going to explain and document the design and briefly explain some of the technologies and the source code.
+I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are. I do not intend to explain everything about microservices. Just summarize some topics. This is not a theoric article but I am going to explain and document the design and briefly explain some of the technologies and the source code.
 
 ## Goals
 
