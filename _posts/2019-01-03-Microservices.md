@@ -86,11 +86,11 @@ Some of the patterns naturally includes others. Some are obselete, some are mode
 Microservice architecture is a software architectural style focusing on building single function modules with well defined interfaces and operations.
 Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product (services) are distinct and loosely coupled or even completely decoupled. Since there is no single monolithic application, and thanks to decoupling nature, it is easier to continue evolving your product by adding more seperately developed components. Compared to more traditional styles, microservices approach tend to work better for agile and devops.
 
-### Monolithic Systems
+### Monolithic
 
 Monolithic architecture is developing your solution as self-contained, one piece application and with tightly coupled components. They have their advantages over microservices or other change friendly systems for well defined, low change products. If you are developing a very strictly designed application, agile and distributed approach is unnecessary and costly. For instance if you are developing an embedded software, or a well defined one such as a classic text editor, disc clean up tool or even an operating system itself, it tends to be cleaner, faster and cheaper to work good old Waterfall project management & Monolithic software architecture. Agile PM, Devops and change friendly architectures such as Microservices shine when the business demands continuous change and either the business domain or the technology has a lot of unknowns.
 
-### Distributed Systems
+### Distributed
 
 Distributed systems is an umbrella term for various software solutions. In essence it means your solution has distinct parts and modules running on seperate machines / platforms. They could be loosely coupled or decoupled. Microservices are distributed in essence. You could have 20 databases and 20 Rest services running on 80 machines, load balancing with each other.
 
@@ -161,7 +161,7 @@ In my implementation, each and every database, tool, web service and consumer is
 
 ### RESTful Web Services
 
-Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. In my implementation, web services provide web services with GET and POST methods only accepting and producing Json data.
+Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide web services with GET and POST methods only accepting and producing Json data.
 
 ## Platform Agnostic Integration
 
@@ -285,6 +285,9 @@ To demonstrate that, I have implemented web services and consumers on a wide var
 
 (TODO)
 
+## Putting it together
+
+(TODO)
 
 ## Technologies
 
