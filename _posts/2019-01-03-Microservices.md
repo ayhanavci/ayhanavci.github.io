@@ -128,7 +128,7 @@ Event store is a type of database system, optimized for storage of events. The d
 
 ### Database Per Service
 
-Each service having its own database helps decoupling them. The output of decomposition is service aggregates. And the database related to each aggregate only needs some of the whole data of the system. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service. One implementation could be like this;
+Each service having its own database helps decoupling them. The output of decomposition are the service aggregates. And the database related to each aggregate only needs some of the whole data of the system. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service. One implementation could be like this;
 
 * Whenever a record event occurs, it gets broadcast through event bus.
 
