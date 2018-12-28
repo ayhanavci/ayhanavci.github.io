@@ -161,7 +161,7 @@ In my implementation, each and every database, tool, web service and consumer is
 
 ### RESTful Web Services
 
-Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide web services with GET and POST methods only accepting and producing Json data.
+Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide GET and POST methods only accepting and producing Json data.
 
 ## Platform Agnostic Integration
 
