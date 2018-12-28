@@ -77,6 +77,8 @@ Various architecture patterns are:
 * Model-View-Controller (and Model-View-Template): A very popular pattern mostly used in web development. Popular frameworks such as .NET and Django employ these patterns. The code is seperated into model, view and controller components. Model deals with the database, usually with an ORM like Entity Framework. View with the presentation to the user, usually html with a syntax like Razor. And the Controller has the business logic in it. This pattern could be considered monolithic & layered in nature since it is usually within a single project and source code is seperated into layers. But the layers in MVC/MVT are not as strict since they all tend communicate with each other.
 * Various other patterns are; Blackboard, Pipes and Filters, Web Queue Worker, Client-Server, Event Bus, CQRS, Microservices. Last three will further be explained below.
 
+(TODO: Visual representations of some of the patterns)
+
 Some of the patterns naturally includes others. Some are obselete, some are modern. I don't think there is a consensus on the whole list, even among the same organization. For instance some Microsoft articles have very different pattern list than the others.
 
 ## Microservices
