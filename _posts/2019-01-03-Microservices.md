@@ -117,7 +117,7 @@ At its core, Command & Query Responsibility Segregation is seperating read and w
 
 Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of physically updating an existing data, you make a new record with the updated fields. You gather the state of your objects / business logic, by combining these recorded events. This allows new ways to perform rollback transactions and data audit. Recording the data becomes very simple and high performance. 
 
-### Event Store
+### Event Store Pattern
 
 Event store is a type of database system, optimized for storage of events. The data stored here never gets updated or deleted. The state changes of the objects required by the domain is handled by adding more events on top of the stack. For our purposes, it is the implementation of the Event Sourcing pattern. It has a record focused database and provides API for the services that may want to use the store.
 
@@ -185,9 +185,100 @@ To demonstrate that, I have implemented web services and consumers on a wide var
 
 (TODO)
 
+## Communication Model
+
+(TODO)
+
+## Event Bus Models
+
+(TODO)
+
+## Docker Containers
+
+(TODO)
+
+### Docker Networks
+
+(TODO)
+
+## Services
+
+(TODO)
+
+### Customer Service
+
+(TODO)
+
+### Product Service
+
+(TODO)
+
+### Order Service
+
+(TODO)
+
+### Accounting Service
+
+(TODO)
+
+## Tools
+
+(TODO)
+
+### Event Bus 
+
+(TODO)
+
+### Event Store Implementation
+
+(TODO)
+
+### Reverse Proxy Implementation
+
+(TODO)
+
+## Databases
+
+### Event Store Database
+
+(TODO)
+
+### Customer Database
+
+(TODO)
+
+### Product Database
+
+(TODO)
+
+### Order Database
+
+(TODO)
+
+### Accounting Database
+
+(TODO)
+
+## Consumers
+
+(TODO)
+
+### ECommerce Website
+
+(TODO)
+
+### Management Website
+
+(TODO)
+
+### ECommerce Native Android App
+
+(TODO)
+
 ## The Implementation
 
 (TODO)
+
 
 ## Technologies
 
