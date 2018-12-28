@@ -49,9 +49,13 @@ I do not intend to explain everything about microservices. Just some topics and 
 
 * Test and upload the source code with its documentation.
 
+## Structure
+
+First, the software patterns and then the Microservices theory is going to be summarized briefly. Then the design of the prototype will be explained with visuals. Next, the there will be topics about the project's structure, containers, communication, databases etc. Finally the code will be presented and explained.
+
 ## Source Code
 
-[github]
+(TODO)
 
 # Concepts
 
