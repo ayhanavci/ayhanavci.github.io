@@ -184,7 +184,8 @@ To demonstrate that, I have implemented web services and consumers on a wide var
 
 # The Software
 
-The business domain I chose is one of the most classic ones so it is very easy to grasp: An ecommerce website. There are products and categories in it. Customers can register, login and browse products. Check their prices and purchase products. If their credit is sufficient and there are enough units in stock, the order succeeds. Product manager can log in to seperate website to edit products, categories and user credits.
+The business domain I chose is one of the most classic ones so it is very easy to grasp: An ecommerce website. There are products and categories in it. Customers can register, login and browse products. Check their prices and purchase products. If their credit is sufficient and there are enough units in stock, the order succeeds. Product manager can log in to seperate website to edit products, categories and user credits.  
+It is important to note that this sort of solution could be implemented, say, as a monolithic MVC application way faster and simpler. But we are going to use Microservices architecture anyway.
 
 ## User Stories
 
@@ -207,7 +208,7 @@ Features:
 
 | User Story | Acceptance Criteria  |
 | ---------- | -------------------- |
-|As a customer, I want to browse for products so that I can place an order.| View product categories<br>View Products<br>Ability to order each product|
+|As a customer, I want to browse for products so that I can place an order.| View product categories<br>View Products<br>Ability to order each product<br>Get an Invoice|
 |As a customer, I want to view my past orders so that it guides my future purposes. |View orders. Display order status, product info, order date|
 |As a customer, I want to view my profile information so that I make adjustments. |View user information and credit<br>Edit name, password, email|
 |As a product manager, I want to add/edit/delete products so that customers can buy them|View/Add/Edit/Delete products. Names, prices, suppliers, units in stock |
