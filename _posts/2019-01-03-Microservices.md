@@ -159,7 +159,7 @@ In microservices, it is important to be flexible and dynamic in your continuous 
 
 * Any module can be implemented in any programming language as long as the established communication is satisfied.
 
-* All services provide Rest API with Json objects.
+* All services provide Rest API with Json objects. So virtually any consumer can communicate with them.
 
 * The communication of the Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
 
