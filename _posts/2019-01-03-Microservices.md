@@ -214,18 +214,22 @@ To demonstrate that, I have implemented web services and consumers on a wide var
 ### Customer Service
 
 (TODO)
-
-### Product Service
-
-(TODO)
+Python - Flask
 
 ### Order Service
 
 (TODO)
+Java - Jersey
+
+### Product Service
+
+(TODO)
+Python - Flask
 
 ### Accounting Service
 
 (TODO)
+Javascript - NodeJS
 
 ## Tools
 
@@ -234,36 +238,44 @@ To demonstrate that, I have implemented web services and consumers on a wide var
 ### Event Bus 
 
 (TODO)
+RabbitMQ
 
 ### Event Store Implementation
 
 (TODO)
+C# .NET Core 
 
-### Reverse Proxy Implementation
+### Reverse Proxy Instance
 
 (TODO)
+Nginx
 
 ## Databases
 
 ### Event Store Database
 
 (TODO)
+MongoDB
 
 ### Customer Database
 
 (TODO)
+Redis
 
 ### Product Database
 
 (TODO)
+SQLite
 
 ### Order Database
 
 (TODO)
+PostgreSQL
 
 ### Accounting Database
 
 (TODO)
+CouchDB
 
 ## Consumers
 
@@ -272,14 +284,17 @@ To demonstrate that, I have implemented web services and consumers on a wide var
 ### ECommerce Website
 
 (TODO)
+Python + Flask
 
 ### Management Website
 
 (TODO)
+Python + Flask
 
 ### ECommerce Native Android App
 
 (TODO)
+Java - Native Android
 
 ## The Implementation
 
