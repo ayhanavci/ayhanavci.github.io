@@ -51,7 +51,11 @@ I do not intend to explain everything about microservices. Just some topics and 
 
 ## Structure
 
-First, the software patterns and then the Microservices theory is going to be summarized briefly. Then the design of the prototype will be explained with visuals. Next, the there will be topics about the project's structure, containers, communication, databases etc. Finally the code will be presented and explained.
+* The software patterns and then the Microservices concepts are going to be summarized.
+
+* The design of the prototype will be explained with visuals.
+
+* The modules will be explained.
 
 ## Source Code
 
