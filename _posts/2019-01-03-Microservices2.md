@@ -187,3 +187,5 @@ Java - Native Android
 ## Links
 
 (TODO)
+
+This is Part 2 of the Microservices article which explains the source code. [The theoric Part 1 is here]({{ site.baseurl }}{% link _posts/2019-01-03-Microservices.md %})

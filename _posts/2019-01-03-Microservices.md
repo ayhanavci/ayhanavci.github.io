@@ -182,3 +182,4 @@ In microservices, it is important to be flexible and dynamic in your continuous 
 
 To demonstrate that, I have implemented web services and consumers on a wide variety of platforms. The full list will be given later.
 
+This is Part 1 of the Microservices article which explains the related patterns. [Part 2 which explains the source code is here]({{ site.baseurl }}{% link _posts/2019-01-03-Microservices2.md %})
