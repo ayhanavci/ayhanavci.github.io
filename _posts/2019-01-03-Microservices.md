@@ -158,7 +158,7 @@ Containers are brilliant technology that fits microservices architecture like a 
 Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications.
 In my implementation, each and every database, tool, web service and consumer is encapsulated inside a docker container.
 
-### RESTful Web Services
+## RESTful Web Services
 
 Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide GET and POST methods only accepting and producing Json data.
 
