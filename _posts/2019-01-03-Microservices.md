@@ -65,7 +65,7 @@ I do not intend to explain everything about microservices. Just some topics and 
 
 ## Software Architecture Patterns
 
-Architecture pattern is a reusable solution to a commonly occurring problem in software architecture. These are not to be confused with [Design Patterns](https://www.goodreads.com/book/show/85009.Design_Patterns). Design patterns are a piece of code in your project, architectural pattern is the design and structure of your software as a whole. There could be multiple design patterns and architectural patterns in your project. ([About design patterns](https://lain.run/concepts/Design-Patterns/)).
+Architecture pattern is a reusable solution to a commonly occurring problem in software architecture. These are not to be confused with [Design Patterns](https://www.goodreads.com/book/show/85009.Design_Patterns). Design patterns are a piece of code in your project, architectural pattern is the design and structure of your software as a whole. There could be multiple design patterns and architectural patterns in your project.
 
 Various architecture patterns are:
 
@@ -73,9 +73,9 @@ Various architecture patterns are:
 * Layered: Same as monolithic but the application is divided into components, developed in a horizontal fashion. The layers usually only communicate with the adjacent components. Great for embedded.
 * N-Tier: Similar to layered. But the components can run on different machines as different instances. Most typical is 3-tiered architecture with Presentation - Business - Data layers.
 * Event driven architecture: Event driven defines the communication model between components of the software. Events could be in the form of user events, socket events, IO completion ports, pipes etc. Event driven architecture could be in Broker pattern or in Mediator pattern. Broker pattern provides a medium in which the components can talk to each other but doesn't interfere with the business logic. Mediator pattern usually includes a controller which orchestrates events between components.
-* Microkernel: In essence, this is plugin system. Like the old Winamp plugins, or Eclipse, Visual Studio etc. all of which has a plugin market. There are also microkernel operating systems which is a bit more complicated than that but essentially the same.
+* Microkernel: Your software has a bare skeleton that works, and it allows seperate modules get attached to it. In essence, this is a plugin system. Like the old Winamp plugins, or Eclipse, Visual Studio etc. all of which has a plugin market. There are also operating systems based on microkernel architecture.
 * Model-View-Controller (and Model-View-Template): A very popular pattern mostly used in web development. Popular frameworks such as .NET and Django employ these patterns. The code is seperated into model, view and controller components. Model deals with the database, usually with an ORM like Entity Framework. View with the presentation to the user, usually html with a syntax like Razor. And the Controller has the business logic in it. This pattern could be considered monolithic & layered in nature since it is usually within a single project and source code is seperated into layers. But the layers in MVC/MVT are not as strict since they all tend communicate with each other.
-* Various other patterns are; Blackboard, Pipes and Filters, Web Queue Worker, Client-Server, Event Bus, CQRS, Microservices. Last three will further be explained below.
+* Various other patterns are; Blackboard, Pipes and Filters, Peer-to-Peer, Web Queue Worker, Client-Server, Event Bus, CQRS, Space-based, Microservices. Last three will further be explained below.
 
 (TODO: Visual representations of some of the patterns)
 
