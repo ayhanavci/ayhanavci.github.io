@@ -40,7 +40,7 @@ I have been exploring software architecture patterns, and paid some attention to
 
 * Keep the business model simple. This is about the technology, not the business domain.
 
-* Use wide variety of technologies, programming languages to demonstrate the atomic and flexible nature of microservices. 
+* Use wide variety of technologies, programming languages to demonstrate the atomic and flexible nature of microservices.
 
 * Avoid using any technology or ready solutions specific to microservices. Only use general use technologies. All libraries and platforms should also be free to use.
 
@@ -116,7 +116,7 @@ Event bus is a software architecture pattern which allows the parts of your solu
 
 ## CQRS
 
-At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. I am not going to discuss it here since it is not the goal and I am not an expert. But in practice this approach may seperate read and write databases themselves and the structure of the data on each database. Database used to record, is usually done by Event Sourcing.
+At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. I am not going to discuss it here since it is not the goal and I am not an expert. But in practice this approach may seperate read and write databases themselves and the structure of the data on each database. When recording data, Event Sourcing usually goes together with CQRS pattern.
 
 ### Event Sourcing
 
