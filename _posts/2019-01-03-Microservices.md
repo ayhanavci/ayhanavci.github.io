@@ -78,7 +78,7 @@ Various architecture patterns are:
 * **N-Tier**: Very similar to layered architecture. But implies that it can be distributed so the components can run on different machines as different instances. Most typical is 3-tiered architecture with Presentation - Business - Data layers.
 * **Event driven architecture**: Event driven defines the communication model between components of the software. Events could be in the form of user events, socket events, IO completion ports, pipes etc. Event driven architecture could be in Broker pattern or in Mediator pattern.
 * **Microkernel**: Your software has a bare skeleton that works, and it allows seperate modules get attached to it. In essence, this is a plugin system. Like the old Winamp plugins, or Eclipse, Visual Studio etc. all of which has a plugin market. There are also operating systems based on microkernel architecture.
-* **Model-View-Controller (and Model-View-Template)**: A very popular pattern mostly used in web development. Popular frameworks such as .NET and Django employ these patterns. The code is seperated into model, view and controller components, seperating the business logic, representation and data access. 
+* **Model-View-Controller (and Model-View-Template)**: A very popular pattern mostly used in web development. The code is seperated into model, view and controller components, seperating the business logic, representation and data access.
 * Various other patterns are; Blackboard, Pipes and Filters, Peer-to-Peer, Web Queue Worker, Client-Server, Space-based, Event Bus, CQRS, Microservices. Last three will further be explained below.
 
 (TODO: Visual representations of some of the patterns)
