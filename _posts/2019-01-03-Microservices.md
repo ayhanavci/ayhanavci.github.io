@@ -336,6 +336,7 @@ Javascript - NodeJS
 (TODO)
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
+
 Figure X: Event Bus
 
 
