@@ -118,6 +118,10 @@ Event bus is a software architecture pattern which allows the parts of your solu
 
 At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. I am not going to discuss it here since it is not the goal and I am not an expert. But in practice this approach may seperate read and write databases themselves and the structure of the data on each database. When recording data, Event Sourcing usually goes together with CQRS pattern.
 
+![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrs.png)
+
+Figure X: CQRS pattern simplified
+
 ### Event Sourcing
 
 Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of physically updating an existing data, you make a new record with the updated fields. You gather the state of your objects / business logic, by combining these recorded events. This allows new ways to perform rollback transactions and data audit. Recording the data becomes very simple and high performance. 
@@ -287,6 +291,7 @@ Before any real change to product, credit or invoice information, everything is 
 In a very basic, old school representation, if you remove everything related to distributed microservice architecture and asynchronous working, this flowchart is what the order saga does.
 
 ![Order Flow]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderflowchart.png)
+
 Figure X: Old school flowchart
 
 
