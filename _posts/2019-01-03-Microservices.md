@@ -374,7 +374,7 @@ The reverse proxy acts as a basic API gateway. I have dockerized and configured 
 ![reverseproxy]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/reverseproxy.png)
 Figure X: Classic Database Entities
 
-Here is the configuration file. It resolves and redirects each request to its related docker container. For instance, a website makes a request to ```http://[my-api-gateway]/order/place-order```. The reverse proxy is located on ```http://[my-api-gateway]/```. It detects that the request is made to ```/order``` and redirects it to the related docker container address with all its parameters and http body. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes. (Although I ran them all on my local development machine)
+Here is the configuration file. It resolves and redirects each request to its related docker container. For instance, a website makes a request to ```http://[my-api-gateway]/order/place-order```. The reverse proxy is sits on root and catches all requests on port 80. In this case, it detects that the request is made to ```/order``` and redirects it to the related docker container address with all its parameters and http body. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes. (Although I ran them all on my local development machine)
 
 ```
 worker_processes 1;
