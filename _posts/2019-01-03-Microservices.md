@@ -103,10 +103,6 @@ Divide and conquer strategy for domain driven design. You break the domain down 
 Microservices are a combination of service aggregates. The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find these services and use them for their intended purposes. This requires an API gateway in which consumer applications can meet with the services.
 To solve this requirement, a service needs to be discovered. You could either design your environment so that each and every service is discovered from a central mechanism, or each service sends their information (ip, port, etc.) whenever they are up and running. 
 
-## Reverse Proxy
-
-One of my goals was building a lean and concept grade Microservice. So I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. So reverse proxy seemed like a good enough replacement for such technologies. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
-
 ## Event Bus
 
 Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location (or even existence). Event bus is a general purpose medium with a well defined protocol and communication model which parts of your software agrees on. Instead of directly sending events to each other's location, they send it to the event bus and whoever is interested in the event retrieves it. [RabbitMQ](https://www.rabbitmq.com) is perfect for such solutions. And it was within my goals criteria since it is totally a generic purpose, popular and free solution. More on that later.
@@ -152,16 +148,6 @@ There is no central coordination. Each service produces events when a certain ac
 ### Event Mediator Pattern - Orchestration
 
 There is a central service responsible solely for coordination of other services and the workflow. This is related to an implementation of Mediator software architectural pattern.
-
-## Containers
-
-Containers are brilliant technology that fits microservices architecture like a glove. From Docker website:
-Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications.
-In my implementation, each and every database, tool, web service and consumer is encapsulated inside a docker container.
-
-## RESTful Web Services
-
-Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide GET and POST methods only accepting and producing Json data.
 
 ## Platform Agnostic Integration
 
@@ -291,6 +277,10 @@ Figure X: Old school flowchart
 
 ## Docker Containers
 
+Containers are brilliant technology that fits microservices architecture like a glove. From Docker website:
+Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications.
+In my implementation, each and every database, tool, web service and consumer is encapsulated inside a docker container.
+
 In most images, I used Alpine Linux when available. It is the most lightweight option works well. For each and every one of the modules, I wrote a docker compose file. In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**. The list of modules and the docker images I used are as follows;
 
 * ECommerce Website: [python:alpine](https://hub.docker.com/_/python/)
@@ -318,9 +308,9 @@ I have created more than necessary amount of docker networks just to demonstrate
 Here is a list of docker networks on my machine. A good amount of them are used for this project.
 ![networkslist]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networkslist.png)
 
-## Services
+## RESTful Web Services
 
-(TODO)
+Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide GET and POST methods only accepting and producing Json data.
 
 ### Customer Service
 
@@ -359,7 +349,9 @@ Figure X: Event Bus
 (TODO)
 C# .NET Core 
 
-### Reverse Proxy Instance
+### Reverse Proxy
+
+One of my goals was building a lean and concept grade Microservice. So I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. So reverse proxy seemed like a good enough replacement for such technologies. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
 
 The reverse proxy acts as a basic API gateway. I have dockerized and configured a Nginx server and placed it inside the microservice network habitat. Here is how it works.
 
@@ -461,7 +453,6 @@ The key here is that everything worth recording must be first recorded on the Ev
 
 ![cqrssequence]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrssequence.png)
 Figure X: CQRS in action
-
 
 ## Consumers
 
