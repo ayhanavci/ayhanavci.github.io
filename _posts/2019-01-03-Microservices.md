@@ -85,16 +85,16 @@ Various architecture patterns are:
 
 Some of the patterns naturally includes others. Some are obselete, some are modern. I don't think there is a consensus on the whole list, even among the same organization. For instance some Microsoft articles have very different pattern list than the others.
 
-## Microservices
+## Microservices Architecture
 
 Microservice architecture is a software architectural style focusing on building single function modules with well defined interfaces and operations.
 Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product (services) are distinct and loosely coupled or even completely decoupled. Since there is no single monolithic application, and thanks to decoupling nature, it is easier to continue evolving your product by adding more seperately developed components. Compared to more traditional styles, microservices approach tend to work better for agile and devops.
 
-### Monolithic
+### Monolithic Architecture
 
-Monolithic architecture is developing your solution as self-contained, one piece application and with tightly coupled components. They have their advantages over microservices or other change friendly systems for well defined, low change products. If you are developing a very strictly designed application, agile and distributed approach is unnecessary and costly. For instance if you are developing an embedded software, or a well defined one such as a classic text editor, disc clean up tool or even an operating system itself, it tends to be cleaner, faster and cheaper to work good old Waterfall project management & Monolithic software architecture. Agile PM, Devops and change friendly architectures such as Microservices shine when the business demands continuous change and either the business domain or the technology has a lot of unknowns.
+Monolithic architecture is developing your solution as self-contained, one piece application and with tightly coupled components. They have their advantages over microservices or other change friendly systems if your product is very well defined, and doesn't need changes
 
-### Distributed
+### Distributed Architecture
 
 Distributed systems is an umbrella term for various software solutions. In essence it means your solution has distinct parts and modules running on seperate machines / platforms. They could be loosely coupled or decoupled. Microservices are distributed in essence. You could have 20 databases and 20 Rest services running on 80 machines, load balancing with each other.
 
