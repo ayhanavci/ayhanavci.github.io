@@ -73,9 +73,9 @@ Architecture pattern is a reusable solution to a commonly occurring problem in s
 
 Various architecture patterns are:
 
-* **Monolithic**: The software is composed in one piece, with tightly coupled modules.
+* **Monolithic**: The software is composed in one piece, with tightly coupled modules. They have their advantages over microservices or other change friendly systems if your product is very well defined, and doesn't need changes.
 * **Layered**: Same as monolithic but the application is divided into components, developed in a horizontal fashion. The layers usually only communicate with the adjacent components. Great for embedded.
-* **N-Tier**: Very similar to layered architecture. But implies that it can be distributed so the components can run on different machines as different instances. Most typical is 3-tiered architecture with Presentation - Business - Data layers.
+* **N-Tier**: Very similar to layered architecture. But implies that it can be distributed so the components can run on different machines as different instances. Most typical is 3-tiered architecture with Presentation - Business - Data layers. Modules are generally loosely coupled.
 * **Event driven architecture**: Event driven defines the communication model between components of the software. Events could be in the form of user events, socket events, IO completion ports, pipes etc. Event driven architecture could be in Broker pattern or in Mediator pattern.
 * **Microkernel**: Your software has a bare skeleton that works, and it allows seperate modules get attached to it. In essence, this is a plugin system. Like the old Winamp plugins, or Eclipse, Visual Studio etc. all of which has a plugin market. There are also operating systems based on microkernel architecture.
 * **Model-View-Controller (and Model-View-Template)**: A very popular pattern mostly used in web development. The code is seperated into model, view and controller components, seperating the business logic, representation and data access.
@@ -89,14 +89,6 @@ Some of the patterns naturally includes others. Some are obselete, some are mode
 
 Microservice architecture is a software architectural style focusing on building single function modules with well defined interfaces and operations.
 Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product (services) are distinct and loosely coupled or even completely decoupled. Since there is no single monolithic application, and thanks to decoupling nature, it is easier to continue evolving your product by adding more seperately developed components. Compared to more traditional styles, microservices approach tend to work better for agile and devops.
-
-### Monolithic Architecture
-
-Monolithic architecture is developing your solution as self-contained, one piece application and with tightly coupled components. They have their advantages over microservices or other change friendly systems if your product is very well defined, and doesn't need changes. This is usually the opposite of Microservice requirements.
-
-### Distributed Architecture
-
-Distributed systems is an umbrella term for various software solutions. In essence it means your solution has distinct parts and modules running on seperate machines / platforms. They could be loosely coupled or decoupled. Microservices are distributed in essence. You could have 20 databases and 20 Rest services running on 80 machines, load balancing with each other.
 
 ### Domain Driven Design
 
