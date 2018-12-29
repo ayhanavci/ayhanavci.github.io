@@ -299,14 +299,18 @@ In a very basic, old school representation, if you remove everything related to 
 
 Figure X: Old school flowchart
 
-
 ## Docker Containers
 
 (TODO)
 
-### Docker Networks
+### Networks
 
-(TODO)
+I have created more than necessary amount of docker networks just to demonstrate how granular and flexible the networking can be done. For instance, Order service and Order database have their own private network so that nothing outside can access the Order database. But also, it can be placed anywhere as long as the service can access it with its network name.
+
+![networks]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networks.png)
+
+Here is a list of docker networks on my machine. Most of them are used for this project.
+![networkslist]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networkslist.png)
 
 ## Services
 
