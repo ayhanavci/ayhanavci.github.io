@@ -117,7 +117,7 @@ Event sourcing is a way of persisting your application's state by storing the hi
 
 ### Event Store Pattern
 
-Event store is a type of database system, optimized for storage of events. The data stored here never gets updated or deleted. The state changes of the objects required by the domain is handled by adding more events on top of the stack. For our purposes, it is the implementation of the Event Sourcing pattern. It has a record focused database and provides API for the services that may want to use the store.
+Event store is a type of database system, optimized for storage of events. The data stored here never gets updated or deleted. The state changes of the objects required by the domain is handled by adding more events on top of the stack. It has a record focused database and provides API for the services that may want to use the store.
 
 ### Database Per Service
 
