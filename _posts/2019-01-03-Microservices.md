@@ -397,7 +397,7 @@ http {
 }
 ```
 
-Note that addresses such as ```http://msdemo-service-customer/``` in this configuration are not dummies, they actually exist within the docker networks. They are defined inside docker compose files. Below is the customer service compose file, check the network aliases;
+Note that addresses such as ```http://msdemo-service-customer/``` in this configuration are not dummies, they actually exist within the docker networks. They are defined inside docker compose files. Below is the customer service compose file, check the network aliases; (msdemo is the prefix I came up with, meaning: Micro Services Demonstration)
 
 ```yml
 version: '3.7'
