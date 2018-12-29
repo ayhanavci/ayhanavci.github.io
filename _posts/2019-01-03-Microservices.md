@@ -392,49 +392,33 @@ http {
 
 ## Databases
 
-### Event Store Database
-
-(TODO)
-MongoDB
-
-### Customer Database
-
-(TODO)
-Redis
-
-### Product Database
-
-(TODO)
-SQLite
-
-### Order Database
-
-(TODO)
-PostgreSQL
-
-### Accounting Database
-
-(TODO)
-CouchDB
+* Event Store Database: MongoDB. Keeps Json data. Never updates or deletes. Just inserts.
+* Customer Database: Redis. Keeps key-value pairs. Key is username, value is user data.
+* Product Database: SQLite. Category - Product relational model. Since this is an SQLite database, it has limitations on scaling.
+* Order Database: PostgreSQL. Records Orders and states.
+* Accounting Database: CouchDB. Records Invoices after an Order is finalized.
 
 ## Consumers
 
-(TODO)
+The consumers are any number of clients who use the webservices for whatever logic. Three of them are implemented but more can be added. 
 
 ### ECommerce Website
 
-(TODO)
-Python + Flask
+Developed using Python + Flask. Containerized. Using this website, users can Register, Login, Logout, View Categories, View Products, Order Products, View and update their profile, view their order history and order status.
 
-### Management Website
-
-(TODO)
-Python + Flask
+(TODO: Screenshots)
 
 ### ECommerce Native Android App
 
-(TODO)
-Java - Native Android
+Developed as a native Android apk using Java. The purpose is the same as ECommerce website but with few options missing.
+
+(TODO: Screenshots)
+
+### Management Website
+
+Developed using Python + Flask. Containerized. Product admins can Login, Add/Update/Delete Categories and Products, Edit customer credits, View all Orders history and their status.
+
+(TODO: Screenshots)
 
 ## The Implementation
 
