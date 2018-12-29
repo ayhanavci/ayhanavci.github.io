@@ -299,8 +299,23 @@ Figure X: Old school flowchart
 
 ## Docker Containers
 
-(TODO)
-In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**.
+In most images, I used Alpine Linux when available. It is the most lightweight option works well. For each and every one of the modules, I wrote a docker compose file. In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**. The list of modules and the docker images I used are as follows;
+
+* ECommerce Website: ```python:alpine```
+* Manager Website: ```python:alpine```
+* Accounting Database: ```couchdb:latest```
+* Customer Database: ```redis:alpine```
+* Event Store Database: ```mongo``` and ```mongo-express``` to manage database.
+* Order Database: ```postgres:alpine```
+* Event Bus: ```rabbitmq:management```
+* Event Store: This one is different. I used ```microsoft/dotnet:2.1-sdk-alpine``` to compile the code and ```microsoft/dotnet:2.1-aspnetcore-runtime-alpine``` for deployment.
+* Reverse Proxy: ```nginx:alpine```
+* Accounting Web Service: ```node:alpine```
+* Customer Web Service: ```python:alpine```
+* Order Web Service: ```maven:3.6-jdk-8-alpine```
+* Product Web Service: ```python:alpine```
+
+In most of the cases I used shell scripts to automate building the source code & executing the binaries. Most of them are named ```run.sh``` and some of them are ```build.sh```. Each module should be up and ready simply by calling ```docker-compose up``` from terminal on root folder of the module. The only exception is CouchDB which requires creating the user database explicitly.
 
 ### Networks
 
