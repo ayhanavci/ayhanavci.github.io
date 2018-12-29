@@ -210,7 +210,7 @@ Features:
 | ---------- | -------------------- |
 |As a customer, I want to browse for products so that I can place an order.| View product categories<br>View Products<br>Ability to order each product<br>Get an Invoice|
 |As a customer, I want to view my past orders so that it guides my future purposes. |View orders. Display order status, product info, order date|
-|As a customer, I want to view my profile information so that I make adjustments. |View user information and credit<br>Edit name, password, email|
+|As a customer, I want to view my profile information so that I can make adjustments. |View user information and credit<br>Edit name, password, email|
 |As a product manager, I want to add/edit/delete products so that customers can buy them|View/Add/Edit/Delete products. Names, prices, suppliers, units in stock |
 |As a product manager, I want to view all customer order states so that I can assist if needed|View all orders and their states history in the system|
 |As a product manager, I want to edit customer credit so that they can purchase products|View all users and their credit<br>Edit credits|
@@ -218,6 +218,12 @@ Features:
 ## The Design
 
 (TODO)
+
+## Aggregates
+
+Business model that is sufficiently decomposed, simplified and satisfies all of the user stories is as follows.
+
+![Aggregates]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/aggregates.png)
 
 ## Communication Model
 
@@ -244,7 +250,7 @@ The Order choreography:
 
 ![Order Saga]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/ordersaga.png)
 
-I have excluded some of the rollback transactions. The only checks here are if product is in store and if the user has enough credits to buy it.
+I have excluded some of the rollback transactions. The only checks here are if the product is in store and if the user has enough credits to buy it.
 
 1. Order service sends a message to Event Store, saying that it wants to place an order.
 2. Event Store records the request. Tells Order service that the request is approved.
