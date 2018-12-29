@@ -352,8 +352,44 @@ The reverse proxy acts as a basic API gateway. I have dockerized and configured 
 ![reverseproxy]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/reverseproxy.png)
 Figure X: Classic Database Entities
 
-Here is the configuration file.
-(TODO)
+Here is the configuration file. It resolves and redirects each request to its related docker container. For instance, a website makes a request to http://myexampleservice.com/order/place-order. The reverse proxy is located on http://myexampleservice.com/. It detects that the request is made to order and redirects it to the related docker container address with all its parameters and http body.
+
+```
+worker_processes 1;
+events { worker_connections 1024; }
+
+http {
+  sendfile off;
+  server {
+      listen 80 default_server;  
+      server_name  localhost;          
+      resolver 127.0.0.11 valid=30s;    
+                  
+      location / {
+        index index.html;
+        include /etc/nginx/mime.types;
+      }
+      location /customer {                
+        rewrite /customer/(.*) /$1 break;        
+        proxy_pass  http://msdemo-service-customer/$1;  
+      }  
+      location /order {                
+        rewrite /order/(.*) /$1 break;        
+        proxy_pass  http://msdemo-service-order/$1;  
+      }
+      location /product {                
+        rewrite /product/(.*) /$1 break;        
+        proxy_pass  http://msdemo-service-product/$1;  
+      }   
+       location /accounting {                
+        rewrite /accounting/(.*) /$1 break;        
+        proxy_pass  http://msdemo-service-accounting/$1;  
+      }     
+              
+  }  
+  
+}
+```
 
 ## Databases
 
