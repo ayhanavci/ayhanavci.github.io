@@ -219,11 +219,25 @@ Features:
 
 (TODO)
 
+## The Data Model
+
+If this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
+
+![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
+Figure X: Classic Database Entities
+
+But we are not using that. We have implemented a type of CQRS pattern. So we have a seperate database for each service and each with a different model. 
+
+Event Sourcing Database: This is just a stack of every significant event that has happened in the system as a whole. The database is document oriented as opposed to RDBMS. It only adds and it never updates or deletes any data.
+
+Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Service databases are included in the Aggregates Diagram below.
+
 ## Aggregates
 
 Business model that is sufficiently decomposed, simplified and satisfies all of the user stories is as follows.
 
 ![Aggregates]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/aggregates.png)
+Figure X: Aggregates Diagram
 
 ## Communication Model
 
@@ -249,6 +263,7 @@ Prelude:
 The Order choreography:
 
 ![Order Saga]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/ordersaga.png)
+Figure X: Order Saga Sequence Diagram
 
 I have excluded some of the rollback transactions. The only checks here are if the product is in store and if the user has enough credits to buy it.
 
