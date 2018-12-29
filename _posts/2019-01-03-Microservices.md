@@ -47,7 +47,7 @@ I have been exploring software architecture patterns, and paid some attention to
 
 * Use wide variety of technologies, programming languages to demonstrate the atomic and flexible nature of microservices.
 
-* Avoid using any technology or ready solutions specific to microservices. Only use general use technologies. All libraries and platforms should also be free to use.
+* Avoid using any technology or ready solutions specific to microservices. Only use general purpose technologies. All libraries and platforms should also be free to use.
 
 * Implement a basic event store, api gateway, various web services and multiple consumers.
 
