@@ -308,7 +308,7 @@ In most images, I used Alpine Linux when available. It is the most lightweight o
 * Event Store Database: ```mongo``` and ```mongo-express``` to manage database.
 * Order Database: ```postgres:alpine```
 * Event Bus: ```rabbitmq:management```
-* Event Store: This one is different. I used ```microsoft/dotnet:2.1-sdk-alpine``` to compile the code and ```microsoft/dotnet:2.1-aspnetcore-runtime-alpine``` for deployment.
+* Event Store: This one is two phased. I used ```microsoft/dotnet:2.1-sdk-alpine``` to compile the code and ```microsoft/dotnet:2.1-aspnetcore-runtime-alpine``` for deployment.
 * Reverse Proxy: ```nginx:alpine```
 * Accounting Web Service: ```node:alpine```
 * Customer Web Service: ```python:alpine```
