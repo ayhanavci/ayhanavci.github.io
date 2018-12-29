@@ -309,7 +309,7 @@ I have created more than necessary amount of docker networks just to demonstrate
 
 ![networks]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networks.png)
 
-Here is a list of docker networks on my machine. Most of them are used for this project.
+Here is a list of docker networks on my machine. A good amount of them are used for this project.
 ![networkslist]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networkslist.png)
 
 ## Services
