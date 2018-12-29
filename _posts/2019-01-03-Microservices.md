@@ -92,7 +92,7 @@ Microservices divides the solution into business atomic modules, and helps creat
 
 ### Monolithic Architecture
 
-Monolithic architecture is developing your solution as self-contained, one piece application and with tightly coupled components. They have their advantages over microservices or other change friendly systems if your product is very well defined, and doesn't need changes
+Monolithic architecture is developing your solution as self-contained, one piece application and with tightly coupled components. They have their advantages over microservices or other change friendly systems if your product is very well defined, and doesn't need changes. This is usually the opposite of Microservice requirements.
 
 ### Distributed Architecture
 
