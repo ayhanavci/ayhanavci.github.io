@@ -251,7 +251,7 @@ The key here is that everything worth recording must be first recorded on the Ev
 
 ## Order Saga
 
-This is the one and only saga that spans over all services. Everything begins when a customer likes a product and places an order. To keep messages simple, he can place 1 product at a time so there is no shopping chart. 
+This is the one and only saga that spans over all services. Everything begins when a customer likes a product and places an order. To keep messages simple, he can place 1 product at a time so there is no shopping chart.
 
 Prelude:
 
@@ -283,6 +283,12 @@ I have excluded some of the rollback transactions. The only checks here are if t
 * Accounting service creates an invoice.
 
 Before any real change to product, credit or invoice information, everything is first approved and recorded by the Event Store. It could cancel the transaction at any point with whatever criteria it wants. But I just made it a dummy service that records and approves everything.
+
+In a very basic, old school representation, if you remove everything related to distributed microservice architecture and asynchronous working, this flowchart is what the order saga does.
+
+![Order Flow]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderflowchart.png)
+Figure X: Old school flowchart
+
 
 ## Docker Containers
 
