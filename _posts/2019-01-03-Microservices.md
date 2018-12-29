@@ -497,6 +497,10 @@ Developed using Python + Flask. Containerized. Product admins can Login, Add/Upd
 
 (TODO)
 
+## Running the Project
+
+(TODO)
+
 ## Conclusion
 
 (TODO)
