@@ -2,7 +2,7 @@
 title: "Microservices, a prototype from scratch"
 excerpt_separator: "<!--more-->"
 description: "Microservices, with concepts implemented. (by Ayhan Avcı)"
-date: "2018-07-29"
+date: "2019-01-01"
 excerpt: "Microservices summarized. A fully working prototype is presented with the source code and documentation."
 header:
     og_image: /assets/images/simplicity3.png
