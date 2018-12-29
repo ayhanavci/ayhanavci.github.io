@@ -239,7 +239,7 @@ But we are not using that. We have implemented a type of CQRS pattern. So we hav
 
 Event Sourcing Database: This is just a stack of every significant event that has happened in the system as a whole. The database is document oriented as opposed to RDBMS. It only adds and it never updates or deletes any data.
 
-Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Service databases are included in the Aggregates Diagram below.
+Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Service databases are included in the Aggregates Diagram.
 
 ## Aggregates
 
@@ -251,8 +251,6 @@ Figure X: Aggregates Diagram
 ## Communication Model
 
 (TODO)
-
-The key here is that everything worth recording must be first recorded on the Event Store since this is the source of all real data. The other databases are all just for reading.
 
 ## Event Bus Models
 
@@ -342,7 +340,7 @@ Javascript - NodeJS
 
 ### Event Bus 
 
-All components are decoupled and do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API.
+All components are decoupled and they do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API.
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
 
@@ -406,6 +404,12 @@ http {
 * Product Database: SQLite. Category - Product relational model. Since this is an SQLite database, it has limitations on scaling.
 * Order Database: PostgreSQL. Records Orders and states.
 * Accounting Database: CouchDB. Records Invoices after an Order is finalized.
+
+The key here is that everything worth recording must be first recorded on the Event Store since this is the source of all real data. The other databases are all just for reading. Below is how a small sample of how it works. If a client asks for products (GET method), then the service queries its local database and returns the results without having to deal with the event store. But if the client performs an add/update/delete operation (POST method) then the service first ensure the Event Store records it first. Then it updates its own database as well.
+
+![cqrssequence]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrssequence.png)
+Figure X: CQRS in action
+
 
 ## Consumers
 
