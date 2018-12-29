@@ -342,7 +342,7 @@ Javascript - NodeJS
 
 ### Event Bus 
 
-All components are decoupled and do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services.
+All components are decoupled and do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API.
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
 
