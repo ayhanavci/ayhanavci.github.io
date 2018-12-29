@@ -100,7 +100,7 @@ Distributed systems is an umbrella term for various software solutions. In essen
 
 ### Domain Driven Design
 
-Domain Driven Design is an approach to developing software systems, and in particular systems that are complex, that have ever-changing business rules, and that you expect to last for the long term within the enterprise. In addition to standart software development literature, you add concepts like Ubiquitous Language that help with communication, Aggregates that helps with seperation of modules, Domain Events, Value Objects etc. It is an approach that can be used for any project, but particularly well suited for Microservices since it is mostly about atomizing the solution.
+Domain Driven Design is an approach to developing software systems, and in particular systems that are complex, that have ever-changing business rules, and that you expect to last for the long term within the enterprise. In addition to standart software development literature, you add concepts like Ubiquitous Language that help with business to technical communication.
 
 ### Decomposition and Aggregates
 
@@ -109,11 +109,11 @@ Divide and conquer strategy for domain driven design. You break the domain down 
 ## Service Discovery and Service Registration
 
 Microservices are a combination of service aggregates. The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find these services and use them for their intended purposes. This requires an API gateway in which consumer applications can meet with the services.
-To solve this requirement, a service needs to be discovered. You could either design your environment so that each and every service is dicovered from a central mechanism, or each service sends their information (ip, port, etc.) whenever they are up and running. There are several premade solutions for this such as [Apache Zookeeper](https://zookeeper.apache.org) or [Apache Curator](https://curator.apache.org/curator-x-discovery/index.html).
+To solve this requirement, a service needs to be discovered. You could either design your environment so that each and every service is discovered from a central mechanism, or each service sends their information (ip, port, etc.) whenever they are up and running. 
 
 ## Reverse Proxy
 
-One of my goals was building a lean and concept grade Microservice. So I wouldn't use any ready to use service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. So reverse proxy seemed like a good enough replacement for such technologies. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
+One of my goals was building a lean and concept grade Microservice. So I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. So reverse proxy seemed like a good enough replacement for such technologies. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
 
 ## Event Bus
 
