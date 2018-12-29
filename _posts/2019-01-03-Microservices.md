@@ -98,7 +98,7 @@ Domain Driven Design is an approach to developing software systems, and in parti
 
 Divide and conquer strategy for domain driven design. You break the domain down into subdomains and define the relationship between them. This helps understanding and defining the parts and the steps of your software solution, and create a stable, modular system. In the end, decomposition outputs aggregates and services.
 
-## Service Discovery and Service Registration
+## Service Discovery / Registration
 
 Microservices are a combination of service aggregates. The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find these services and use them for their intended purposes. This requires an API gateway in which consumer applications can meet with the services.
 To solve this requirement, a service needs to be discovered. You could either design your environment so that each and every service is discovered from a central mechanism, or each service sends their information (ip, port, etc.) whenever they are up and running. 
@@ -137,11 +137,11 @@ Seperation of read & write databases makes the process fast and lean.
 
 Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation, both of these scenarios typically uses an Event Bus for communication, as the media for the event traffic. In my case, I used a choreography saga over an event bus.
 
-### Event Broker Pattern - Choreography, Controller or Processor
+### Event Broker Pattern - Choreography
 
 There is no central coordination. Each service produces events when a certain action occurs. Each service knows how to respond to related events produced by other services. So the responsibility of the full transaction is distributed among relevant services. This is aided by an implementation of the Broker software architectural pattern.
 
-### Event Mediator Pattern - Orchestration
+### Event Mediator Pattern - Orchestration, Controller or Processor
 
 There is a central service responsible solely for coordination of other services and the workflow. This is related to an implementation of Mediator software architectural pattern.
 
