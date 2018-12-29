@@ -343,8 +343,13 @@ C# .NET Core
 
 ### Reverse Proxy Instance
 
+The reverse proxy acts as a basic API gateway. I have dockerized and configured a Nginx server and placed it inside our microservice network habitat. Here is how it works.
+
+![reverseproxy]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/reverseproxy.png)
+Figure X: Classic Database Entities
+
+Here is the configuration file.
 (TODO)
-Nginx
 
 ## Databases
 
