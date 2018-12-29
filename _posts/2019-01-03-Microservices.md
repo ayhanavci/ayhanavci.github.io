@@ -397,6 +397,50 @@ http {
 }
 ```
 
+Note that addresses such as ```http://msdemo-service-customer/``` in this configuration are not dummies, they actually exist within the docker networks. They are defined inside docker compose files. Below is the customer service compose file, check the network aliases;
+
+```yml
+version: '3.7'
+services:
+  web-service-customer:  
+    build:
+      context: .
+      target: web-service-customer
+    image: msdemo-web-service-customer:v1.0  
+    volumes:          
+      - type: bind
+        source: ./
+        target: /customer    
+    command:
+      - /customer/run.sh
+    ports:
+      - 6002:80    
+    environment:
+      PYTHONUNBUFFERED: 1
+      INSTALL_PATH: /customer
+      EVENT_BUS_IP: msdemo-event-bus      
+      EVENT_BUS_USERNAME: msdemo_usr
+      EVENT_BUS_PASSWORD: msdemo_pass
+      DATABASE_IP: msdemo-db-customer
+      DATABASE_PORT: 6379
+      DATABASE_PASSWORD: customer_pass
+    networks:
+      default: {}
+      msdemo-nw:
+        aliases:
+          - msdemo-service-customer
+      msdemo-nw-order:
+        aliases:
+          - msdemo-service-customer
+networks:
+  msdemo-nw:
+    external:
+      name: msdemo-nw
+  msdemo-nw-order:
+    external:
+      name: msdemo-nw-customer
+```
+
 ## Databases
 
 * Event Store Database: MongoDB. Keeps Json data. Never updates or deletes. Just inserts.
