@@ -223,9 +223,45 @@ Features:
 
 (TODO)
 
+The key here is that everything worth recording must be first recorded on the Event Store since this is the source of all real data. The other databases are all just for reading.
+
 ## Event Bus Models
 
 (TODO)
+
+## Order Saga
+
+This is the one and only saga that spans over all services. Everything begins when a customer likes a product and places an order. To keep messages simple, he can place 1 product at a time so there is no shopping chart. 
+
+Prelude:
+
+1. Customer places an order on a product
+2. eCommerce website or eCommerce android application sends the request to reverse proxy.
+3. Reverse proxy redirects the requests to Order web service
+4. Order Web service starts the Order Saga
+
+The Order choreography:
+
+![Order Saga]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/ordersaga.png)
+
+I have excluded some of the rollback transactions. The only checks here are if product is in store and if the user has enough credits to buy it.
+
+1. Order service sends a message to Event Store, saying that it wants to place an order.
+2. Event Store records the request. Tells Order service that the request is approved.
+3. Since data is now atomicly recorded in the Event Store, Order service is now allowed to record the purchase request into its own database.
+4. Order service starts the saga. Through Event Bus, it makes a broadcast to everything that listens to the saga events.
+5. Product, Customer and Accounting services are interested in the saga. They asynchronously receive the event and respond to it.
+* Product service checks if the product is in stock. Sends the price & stock information response back to the Order Service.
+* Customer service checks if the customer has enough credit for the purchase. Sends the credit response back to Order Service.
+* Accounting service does nothing. It is only interested in the final outcome.
+6. Order service checks the responses and if product is in stock and the customer has enough credits, it approves the purchase but doesn't finalize yet. Sends the finalize request to Event Store.
+7. Event Store records the purchase and responds to Order Service.
+8. Order Service updates it Query database that the order suceeded. Then broadcasts to all recepients that an Order is successfully placed. The following events occur asynchronously.
+* Product service reduces the units in stock.
+* Customer service reduces the customer credit.
+* Accounting service creates an invoice.
+
+Before any real change to product, credit or invoice information, everything is first approved and recorded by the Event Store. It could cancel the transaction at any point with whatever criteria it wants. But I just made it a dummy service that records and approves everything.
 
 ## Docker Containers
 
