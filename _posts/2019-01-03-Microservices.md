@@ -103,10 +103,6 @@ Divide and conquer strategy for domain driven design. You break the domain down 
 Microservices are a combination of service aggregates. The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find these services and use them for their intended purposes. This requires an API gateway in which consumer applications can meet with the services.
 To solve this requirement, a service needs to be discovered. You could either design your environment so that each and every service is discovered from a central mechanism, or each service sends their information (ip, port, etc.) whenever they are up and running. 
 
-## Event Bus
-
-Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location (or even existence). Event bus is a general purpose medium with a well defined protocol and communication model which parts of your software agrees on. Instead of directly sending events to each other's location, they send it to the event bus and whoever is interested in the event retrieves it. [RabbitMQ](https://www.rabbitmq.com) is perfect for such solutions. And it was within my goals criteria since it is totally a generic purpose, popular and free solution. More on that later.
-
 ## CQRS
 
 At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. I am not going to discuss it here since it is not the goal and I am not an expert. But in practice this approach may seperate read and write databases themselves and the structure of the data on each database. When recording data, Event Sourcing usually goes together with CQRS pattern.
@@ -157,7 +153,7 @@ In microservices, it is important to be flexible and dynamic in your continuous 
 
 * All services provide Rest API with Json objects. So virtually any consumer can communicate with them.
 
-* The communication of the Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
+* The Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
 
 * Any module can use whatever query database it wants to.
 
@@ -337,6 +333,8 @@ Javascript - NodeJS
 (TODO)
 
 ### Event Bus 
+
+Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location (or even existence). Event bus is a general purpose medium with a well defined protocol and communication model which parts of your software agrees on. Instead of directly sending events to each other's location, they send it to the event bus and whoever is interested in the event retrieves it. [RabbitMQ](https://www.rabbitmq.com) is perfect for such solutions. And it was within my goals criteria since it is totally a generic purpose, popular and free solution. More on that later.
 
 All components are decoupled and they do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API.
 
