@@ -148,7 +148,7 @@ Seperation of read & write databases makes the process fast and lean.
 
 Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation, both of these scenarios typically uses an Event Bus for communication, as the media for the event traffic. In my case, I used a choreography saga over an event bus.
 
-### Event Broker Pattern - Choreography
+### Event Broker Pattern - Choreography, Controller or Processor
 
 There is no central coordination. Each service produces events when a certain action occurs. Each service knows how to respond to related events produced by other services. So the responsibility of the full transaction is distributed among relevant services. This is aided by an implementation of the Broker software architectural pattern.
 
