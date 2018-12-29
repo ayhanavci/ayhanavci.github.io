@@ -65,7 +65,7 @@ I have been exploring software architecture patterns, and paid some attention to
 
 (TODO)
 
-# The Theory
+# The Concepts
 
 ## Software Architecture Patterns
 
