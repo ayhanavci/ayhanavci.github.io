@@ -139,7 +139,7 @@ Features:
 
 (TODO)
 
-![allsystem](https://github.com/ayhanavci/Microservices/images/allsystem.png)
+![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure X: Communication Topography
 
 ## Modules
