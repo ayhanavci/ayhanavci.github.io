@@ -153,7 +153,7 @@ I used Python with Flask often because it is arguably one of the fastest and cle
 |Event Store Database|Database|-|-|[mongo](https://hub.docker.com/_/mongo)<br>[mongo-express](https://hub.docker.com/_/mongo-express)|
 |Order Database|Database|-|-|[postgres:alpine](https://hub.docker.com/_/postgres)|
 |Event Bus|Support Tool|-|-|[rabbitmq:management](https://hub.docker.com/_/rabbitmq)|
-|Event Store|Support Tool|C#|.NET Core 2.1|[dotnet:2.1-sdk-alpine](https://hub.docker.com/r/microsoft/dotnet) <br> [dotnet:2.1-aspnetcore-runtime-alpine](https://hub.docker.com/r/microsoft/dotnet)|
+|Event Store|Support Tool|C#|.NET Core 2.1|[dotnet:2.1-sdk](https://hub.docker.com/r/microsoft/dotnet) <br> [dotnet:2.1-aspnetcore-runtime](https://hub.docker.com/r/microsoft/dotnet)|
 |Reverse Proxy|Support Tool|-|-|[nginx:alpine](https://hub.docker.com/_/nginx)|
 |Accounting Web Service|Web Service|Javascript|Node|[node:alpine](https://hub.docker.com/_/node)|
 |Customer Web Service|Web Service|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
