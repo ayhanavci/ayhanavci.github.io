@@ -139,6 +139,9 @@ Features:
 
 (TODO)
 
+![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
+Figure X: System
+
 ## Modules
 
 I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I would implement everything in Python if I didn't want to introduce some variety. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment. 
@@ -365,9 +368,6 @@ One of my goals was building a lean and concept grade Microservice. So I wouldn'
 
 The reverse proxy acts as a basic API gateway. I have dockerized and configured a Nginx server and placed it inside the microservice network habitat. Here is how it works.
 
-![reverseproxy]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/reverseproxy.png)
-Figure X: Reverse Proxy
-
 Here is the configuration file. It resolves and redirects each request to its related docker container. For instance, a website makes a request to ```http://[my-api-gateway]/order/place-order```. The reverse proxy is sits on root and catches all requests on port 80. In this case, it detects that the request is made to ```/order``` and redirects it to the related docker container address with all its parameters and http body. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes. (Although I ran them all on my local development machine)
 
 ```
@@ -504,9 +504,6 @@ Only couchDB requires the following command after it starts:
 ```curl -X PUT http://accounting_usr:accounting_pass@127.0.0.1:5984/_users```
 
 Below is how all the modules running looks like. First column is database dockers: db_eventstore, db_customer, db_order, db_accounting. Second column is web services: service_product, service_customer, service_order, service_accounting. Third column are tools: event_bus, event_store, reverse_proxy. Fourth column is websites: website_ecommerce, website_manager.
-
-![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
-Figure X: All modules running
 
 
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server. 
