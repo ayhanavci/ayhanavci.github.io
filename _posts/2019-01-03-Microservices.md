@@ -230,7 +230,7 @@ Order Service keeps the latest state of the Order and Customer service keeps the
 ![orderlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderlocaldb.png)
 Figure X: Order Database after the story
 
-Customer database is on Redis and keeps key - value pairs in which the key is the Customer id and value is a Json object holding the details of the Customer. It also just keeps the latest information of the Customer. Looks weird, but I took the screenshot using Redis-Cli.
+Customer database on Redis.
 
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
 Figure X: Customer Database after the story
