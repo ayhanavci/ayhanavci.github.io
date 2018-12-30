@@ -76,7 +76,7 @@ At its core, Command & Query Responsibility Segregation is seperating read and w
 
 ![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrs.png)
 
-Figure X: CQRS pattern simplified
+Figure 1: CQRS pattern simplified
 
 ### Event Sourcing
 
@@ -134,12 +134,14 @@ Features:
 |As a product manager, I want to view all customer order states so that I can assist if needed|View all orders and their states history in the system|
 |As a product manager, I want to edit customer credit so that they can purchase products|View all users and their credit<br>Edit credits|
 
+Table 1. User Stories
+
 ## The Design
 
 Modules are scalable. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. Modules are distributed. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network. 
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
-Figure X: Communication Topography
+Figure 2. Communication Topography
 
 ## Modules
 
@@ -162,6 +164,8 @@ I used Python with Flask often because it is arguably one of the fastest and cle
 |Order Web Service|Web Service|Java|JDK-Jersey|[maven:3.6-jdk-8-alpine](https://hub.docker.com/_/maven)|
 |Product Web Service|Web Service|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
 
+Table 2. Modules
+
 ## Platform Agnostic Design
 
 In microservices, it is important to be flexible and dynamic. These are the design principles related to that.
@@ -183,7 +187,7 @@ In microservices, it is important to be flexible and dynamic. These are the desi
 Business model that is sufficiently decomposed, simplified and satisfies all of the user stories is as follows.
 
 ![Aggregates]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/aggregates.png)
-Figure X: Aggregates Diagram
+Figure 3. Aggregates Diagram
 
 ## The Data Model
 
@@ -196,7 +200,7 @@ Figure X: Aggregates Diagram
 The key here is that everything worth recording must be first recorded on the Event Store since this is the source of all real data. The other databases are all just for reading. Below is a small sample on how it works. If a client asks for products (GET method), then the service queries its local database and returns the results without having to deal with the event store. But if the client performs an add/update/delete operation (POST method) then the service first ensure the Event Store records it first. Then it updates its own database as well.
 
 ![cqrssequence]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrssequence.png)
-Figure X: CQRS in action
+Figure 4. CQRS in action
 
 1. Product Manager logs in, __Adds__ a new product.
 2. Product Manager decides he made a mistake in parameters, __Updates__ the product he just created
@@ -206,34 +210,34 @@ Figure X: CQRS in action
 
 ![addproduct]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/addproduct.png){:height="335px" width="256px"}
 
-Figure X: Product manager adds a product
+Figure 5. Product manager adds a product
 
 Event Store after these events occur:
 
 ![eventstoredata]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventstoredata.png)
 
-Figure X: Event Store after the story.
+Figure 6. Event Store after the story.
 
 There are NO updates or deletes actually happening in the Event Store. Only inserts. The Update Json message here doesn't update any previous record. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
 
 ![storedjsonsample]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/storedjsonsample.png)
 
-Figure X: Stored Json for Add Product event.
+Figure 7. Stored Json for Add Product event.
 
 This is how synchronized data is stored. After Event Store secures the data, it fires an event through the Event Bus, notifying all interested parties that a new record is made. And they also update their local databases, if they require to do so.
 
 ![productlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/productlocaldb.png)
-Figure X: Product Database after the story
+Figure 8. Product Database after the story
 
 Order Service keeps the latest state of the Order and Customer service keeps the latest Credit score of the Customer. It just keeps the latest state of the order. Each web service uses their local database when their GET methods are invoked.
 
 ![orderlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderlocaldb.png)
-Figure X: Order Database after the story
+Figure 9. Order Database after the story
 
 Customer database on Redis.
 
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
-Figure X: Customer Database after the story
+Figure 10. Customer Database after the story
 
 ## Communication Model
 
@@ -244,6 +248,27 @@ Figure X: Customer Database after the story
 ### Event Bus
 
 (TODO: RabbitMQ. Pub/Sub pattern. Topic pattern. Queues, Exchange Names, Routing keys. Visuals)
+Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, Work Queues and RPCs. It is best to check the [official web site](https://www.rabbitmq.com/getstarted.html) to learn about how these patterns work. But here is an intro:
+
+![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
+
+Figure 11. Producer - Consumer model with Queues, Exchanges and Routing keys
+
+Any application can publish events into any routing key through any exchange. Interested consumers can create their own queues and wait for the messages they have subscribed into. In this example Consumer 1 is interested in Key 1, Consumer 2 is interested in Key 2 and Consumer 3 is interested in all both types of events. 
+
+Web Services in the project uses are a more complicated topography. Below is how Event Store communicates with services to record and publish events.
+
+![eventbusrouting1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting1.png)
+
+Figure 12. Event Store communication with Services over Event Bus
+
+And below is how communication for Order Saga occurs. Notice that queues and Exchange names are re-used but routing keys are not. 
+
+![eventbusrouting2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting2.png)
+
+Figure 12. Event Saga communication between Services over Event Bus
+
+
 
 ## Order Saga
 
@@ -335,7 +360,7 @@ All components are decoupled and they do not know the location of other services
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
 
-Figure X: Event Bus
+Figure 11. Event Bus
 
 ### Event Store Implementation
 
@@ -460,6 +485,8 @@ Only couchDB requires the following command after it starts:
 Below is how all the modules running looks like. 
 
 ![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
+
+Figure 12. All dockers running on terminal
 
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server.
 
