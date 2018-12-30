@@ -179,19 +179,23 @@ Aside from Event Store database, each service has its own database which merely 
 5. The Customer decides he needs more money after the purchase and asks Product Manager to increase his credit. Product Manager __Updates__ the Customer's credit.
 
 ![addproduct]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/addproduct.png)
+
 Figure X: Product manager adds a product
 
 ![orders1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders1.png)
+
 Figure X: Customer orders the product
 
 Event Store after these events occur:
 
 ![eventstoredata]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventstoredata.png)
+
 Figure X: Event Store after the story.
 
 As you can see, there are NO updates or deletes actually happening in the Event Store. Only inserts. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
 
 ![storedjsonsample]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/storedjsonsample.png)
+
 Figure X: Stored Json for Add Product event.
 
 This is how synchronized, actual data is actually stored. The Query databases for each service (database per service & Query portion of CQRS pattern) is a different story. After Event Store secures the data, it fires an event through the Event Bus, notifying all interested parties that a new record is made. And they also update their local databases, if they need to do so. 
