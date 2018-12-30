@@ -201,9 +201,16 @@ For instance, the add product event is fired and the Product Service records it 
 ![productlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/productlocaldb.png)
 Figure X: Product Database after the story
 
-All other local databases are also effected by our little story. Order Service keeps the latest state of the Order and Customer service keeps the latest Credit score of the Customer. 
+All other local databases are also effected by our little story. Order Service keeps the latest state of the Order and Customer service keeps the latest Credit score of the Customer.
 
-Service databases are included in the Aggregates Diagram.
+Below is the Order database. It just keeps the latest state of the order. Each web service uses these when their GET methods are invoked. They never have to resort to the actual data in the Event Store.
+
+![orderlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderlocaldb.png)
+Figure X: Order Database after the story
+
+Customer database is on Redis and keeps key - value pairs in which the key is the Customer id and value is a Json object holding the details of the Customer. It also just keeps the latest information of the Customer.
+
+Service databases are displayed in the Aggregates Diagram below.
 
 ## Aggregates
 
