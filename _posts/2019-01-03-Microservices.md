@@ -80,11 +80,11 @@ Figure X: CQRS pattern simplified
 
 ### Event Sourcing
 
-Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of updating an existing data, you make a new record with the updated fields. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
+Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
 
 ### Event Store Pattern
 
-Event store is a type of database system, optimized for storage of events. The data stored here never gets updated or deleted. It has a record focused database and provides API for the services that may want to use the store.
+Event store is a type of database system, optimized for storage of events. It has a record focused database and provides API for the services that may want to use the store.
 
 ### Database Per Service
 
@@ -92,7 +92,7 @@ Each service having its own private database helps decoupling them. Each aggrega
 
 ## Saga
 
-Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation;
+Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation;
 
 ### Event Broker Pattern - Choreography
 
