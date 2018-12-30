@@ -231,14 +231,10 @@ Figure X: Stored Json for Add Product event.
 
 This is how synchronized data is stored. After Event Store secures the data, it fires an event through the Event Bus, notifying all interested parties that a new record is made. And they also update their local databases, if they require to do so.
 
-For instance, the add product event is fired and the Product Service records it into its local SQLite database. And when Update Record event occurs, it simply updates the state of its product. Event Store keeps all the changes but ignores the state, Service database on the other hand just keeps the latest state.
-
 ![productlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/productlocaldb.png)
 Figure X: Product Database after the story
 
-All other local databases are also effected by our little story. Order Service keeps the latest state of the Order and Customer service keeps the latest Credit score of the Customer.
-
-Below is the Order database. It just keeps the latest state of the order. Each web service uses these when their GET methods are invoked. They never have to resort to the actual data in the Event Store.
+Order Service keeps the latest state of the Order and Customer service keeps the latest Credit score of the Customer. It just keeps the latest state of the order. Each web service uses their local database when their GET methods are invoked.
 
 ![orderlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderlocaldb.png)
 Figure X: Order Database after the story
@@ -250,7 +246,9 @@ Figure X: Customer Database after the story
 
 ## Communication Model
 
-The web services are all Restful Http Web Services, so they accept API calls through Http over TCP/IP protocol either with GET or POST.The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ which uses Amqp. This is also handled by recommended adapters, varying for each programming language used (C#, Java, NodeJS and Python). All of these are happening within docker containers so there is also Docker networking involved in all of these communications.
+* The web services provide Restful Http Web Services to communicate with the consumers.
+* The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ, uses Amqp.
+* These are happening within docker containers so there is also Docker networking involved in all of these communications.
 
 ### Event Bus
 
