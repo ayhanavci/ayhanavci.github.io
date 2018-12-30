@@ -136,15 +136,14 @@ Features:
 
 ## The Design
 
-Every module is scalable. The system allows easy, fully decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to talk to Event Bus. 
-Each module is distributed. You can pick any of the modules and deploy anywhere as long as it is accessible in your Docker network.
+Modules are scalable. The system allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to talk to Event Bus. Each module is distributed. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network.
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure X: Communication Topography
 
 ## Modules
 
-I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I would implement everything in Python if I didn't want to introduce some variety. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment. 
+I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. Only the desire for variety prevented me to do so. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment
 
 | Module | Category  | Programming Language | Sdk | Docker |
 | ------ | --------- | -------------------- | -------- | ------ |
