@@ -184,6 +184,14 @@ In microservices, it is important to be flexible and dynamic. These are the desi
 
 To demonstrate these, I have implemented web services and consumers on a variety of platforms and languages.
 
+
+## Aggregates
+
+Business model that is sufficiently decomposed, simplified and satisfies all of the user stories is as follows.
+
+![Aggregates]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/aggregates.png)
+Figure X: Aggregates Diagram
+
 ## The Data Model
 
 If this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
@@ -191,7 +199,7 @@ If this was a monolithic application with a single, relational data representati
 ![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
 Figure X: Classic Database Entities
 
-But we are not using that. We have implemented a type of CQRS pattern. So we have a seperate database for each service and each with a different model. 
+But this is not the case. I have implemented a type of CQRS pattern. So there is a seperate database for each service and each with a different model. 
 
 Event Sourcing Database: This is just a stack of every significant event that has happened in the system as a whole. The database is document oriented as opposed to RDBMS. It only adds and it never updates or deletes any data.
 
@@ -242,14 +250,6 @@ Customer database is on Redis and keeps key - value pairs in which the key is th
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
 Figure X: Customer Database after the story
 
-Service databases are displayed in the Aggregates Diagram below.
-
-## Aggregates
-
-Business model that is sufficiently decomposed, simplified and satisfies all of the user stories is as follows.
-
-![Aggregates]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/aggregates.png)
-Figure X: Aggregates Diagram
 
 ## Communication Model
 
