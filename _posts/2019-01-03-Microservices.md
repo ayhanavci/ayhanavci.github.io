@@ -244,13 +244,6 @@ Customer database is on Redis and keeps key - value pairs in which the key is th
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
 Figure X: Customer Database after the story
 
-**If** this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
-
-![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
-Figure X: Classic Database Entities
-
-But this is **not** the case. 
-
 ## Communication Model
 
 The web services are all Restful Http Web Services, so they accept API calls through Http over TCP/IP protocol either with GET or POST. They also communicate with their databases depending on what database is used. Communicating to CouchDB is wildly different than communicating with PostgreSQL or SQLite. All are handled by official language adapters provided by database vendors. The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ which uses Amqp. This is also handled by recommended adapters, varying for each programming language used (C#, Java, NodeJS and Python). All of these are happening within docker containers so there is also Docker networking involved in all of these communications.
