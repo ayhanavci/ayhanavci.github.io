@@ -498,7 +498,7 @@ Only couchDB requires the following command after it starts:
 Below is how all the modules running looks like. First column is database dockers: db_eventstore, db_customer, db_order, db_accounting. Second column is web services: service_product, service_customer, service_order, service_accounting. Third column are tools: event_bus, event_store, reverse_proxy. Fourth column is websites: website_ecommerce, website_manager.
 
 ![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
-Figure X: CQRS in action
+Figure X: All modules running
 
 
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server. 
