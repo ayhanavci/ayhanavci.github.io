@@ -174,14 +174,14 @@ Aside from Event Store database, each service has its own database which merely 
 
 1. Product Manager logs in, __Adds__ a new product.
 2. Product Manager decides he made a mistake in parameters, __Updates__ the product he just created
-3. A Customer logs in, takes a look at the products and decides to __Order__ the product that was previously recorded.
+3. A Customer opens the app on his smart phone, takes a look at the products and decides to __Order__ the product that was previously recorded.
 4. The Order Saga communications occur and the system __Approves__ the order and it is now ready to get shipped.
 5. The Customer decides he needs more money after the purchase and asks Product Manager to increase his credit. Product Manager __Updates__ the Customer's credit.
 
 ![addproduct]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/addproduct.png)
 Figure X: Product manager adds a product
 
-![orders]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders.png)
+![orders1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders1.png)
 Figure X: Customer orders the product
 
 Event Store after these events occur:
