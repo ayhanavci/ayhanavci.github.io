@@ -68,7 +68,7 @@ Divide and conquer strategy for domain driven design. You break the domain down 
 
 ## Service Discovery / Registration
 
-The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find and access them. This requires an API gateway in which consumer applications can meet with the services. So a service needs to be somehow discovered. They could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
+The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time and they should be accessible. This requires an API gateway in which consumer applications can meet with the services. The services could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
 
 ## CQRS
 
