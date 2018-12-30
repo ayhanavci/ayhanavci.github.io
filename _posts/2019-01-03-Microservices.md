@@ -357,11 +357,9 @@ C# .NET Core
 
 ### Reverse Proxy
 
-One of my goals was building a lean and concept grade Microservice. So I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. So reverse proxy seemed like a good enough replacement for such technologies. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
+I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. Reverse proxy seemed like a good enough replacement for such technologies. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
 
-The reverse proxy acts as a basic API gateway. I have dockerized and configured a Nginx server and placed it inside the microservice network habitat. Here is how it works.
-
-Here is the configuration file. It resolves and redirects each request to its related docker container. For instance, a website makes a request to ```http://[my-api-gateway]/order/place-order```. The reverse proxy is sits on root and catches all requests on port 80. In this case, it detects that the request is made to ```/order``` and redirects it to the related docker container address with all its parameters and http body. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes. (Although I ran them all on my local development machine)
+The reverse proxy acts as a basic API gateway. I have dockerized and configured a Nginx server and placed it inside the microservice network habitat. It resolves and redirects each request to its related container. The reverse proxy is sits on root and catches all requests on port 80. It detects the requests made to locations on its config and redirects it to the related docker container address with all its parameters and http body. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes.
 
 ```
 worker_processes 1;
@@ -400,7 +398,7 @@ http {
 }
 ```
 
-Note that addresses such as ```http://msdemo-service-customer/``` in this configuration are not dummies, they actually exist within the docker networks. They are defined inside docker compose files. Below is the customer service compose file, check the network aliases; 
+Note that addresses such as ```http://msdemo-service-customer/``` exist within the docker networks, defined inside docker compose files. Below is the customer service compose file, check the network aliases;
 
 ```yml
 version: '3.7'
@@ -444,7 +442,6 @@ networks:
       name: msdemo-nw-customer
 ```
 
-
 ## Consumers
 
 The consumers are any number of clients who use the webservices for whatever logic. Three of them are implemented but more can be added. 
@@ -453,23 +450,17 @@ The consumers are any number of clients who use the webservices for whatever log
 
 Developed using Python + Flask. Containerized. Using this website, users can Register, Login, Logout, View Categories, View Products, Order Products, View and update their profile, view their order history and order status.
 
-(TODO: Screenshots)
-
 ### ECommerce Native Android App
 
 Developed as a native Android apk using Java. The purpose is the same as ECommerce website but with few options missing.
-
-(TODO: Screenshots)
 
 ### Management Website
 
 Developed using Python + Flask. Containerized. Product admins can Login, Add/Update/Delete Categories and Products, Edit customer credits, View all Orders history and their status.
 
-(TODO: Screenshots)
-
 ## Running the Project
 
-All modules are prepared for Docker Compose. The classic option is running compose from terminal. You need to repeat the following process for each module. 
+All modules are prepared for Docker Compose. The classic option is running compose from terminal. You need to repeat the following process for each module.
 
 1. Open a terminal. Change directory to the module
 2. Type ```docker-compose up```
