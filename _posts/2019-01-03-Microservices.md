@@ -104,7 +104,7 @@ There is a central service responsible solely for coordination of other services
 
 # The Software
 
-The business domain I chose is one of the most classic ones so it is very easy to grasp: An ecommerce website. 
+The business domain I chose is one of the most classic ones so it is very easy to grasp: A shopping app.
 
 ## User Stories
 
