@@ -246,7 +246,7 @@ Figure X: Customer Database after the story
 
 ## Communication Model
 
-The web services are all Restful Http Web Services, so they accept API calls through Http over TCP/IP protocol either with GET or POST. They also communicate with their databases depending on what database is used. Communicating to CouchDB is wildly different than communicating with PostgreSQL or SQLite. All are handled by official language adapters provided by database vendors. The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ which uses Amqp. This is also handled by recommended adapters, varying for each programming language used (C#, Java, NodeJS and Python). All of these are happening within docker containers so there is also Docker networking involved in all of these communications.
+The web services are all Restful Http Web Services, so they accept API calls through Http over TCP/IP protocol either with GET or POST.The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ which uses Amqp. This is also handled by recommended adapters, varying for each programming language used (C#, Java, NodeJS and Python). All of these are happening within docker containers so there is also Docker networking involved in all of these communications.
 
 ### Event Bus
 
