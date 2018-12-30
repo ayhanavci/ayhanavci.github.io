@@ -220,12 +220,6 @@ Figure X: Event Store after the story.
 
 As you can see, there are NO updates or deletes actually happening in the Event Store. Only inserts. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
 
-**If** this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
-
-![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
-Figure X: Classic Database Entities
-
-But this is **not** the case. 
 
 ![storedjsonsample]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/storedjsonsample.png)
 
@@ -250,6 +244,12 @@ Customer database is on Redis and keeps key - value pairs in which the key is th
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
 Figure X: Customer Database after the story
 
+**If** this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
+
+![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
+Figure X: Classic Database Entities
+
+But this is **not** the case. 
 
 ## Communication Model
 
