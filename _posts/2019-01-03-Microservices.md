@@ -194,13 +194,6 @@ Figure X: Aggregates Diagram
 
 ## The Data Model
 
-If this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
-
-![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
-Figure X: Classic Database Entities
-
-But this is not the case. I have implemented a type of CQRS pattern. So there is a seperate database for each service and each with a different model. 
-
 Event Sourcing Database: This is just a stack of every significant event that has happened in the system as a whole. The database is document oriented as opposed to RDBMS. It only adds and it never updates or deletes any data.
 
 Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Instead of a relational database, here is what Event Store records when events occur when users take the following actions.
@@ -226,6 +219,13 @@ Event Store after these events occur:
 Figure X: Event Store after the story.
 
 As you can see, there are NO updates or deletes actually happening in the Event Store. Only inserts. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
+
+**If** this was a monolithic application with a single, relational data representation. The model below would be sufficient. 
+
+![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/classicdb.png)
+Figure X: Classic Database Entities
+
+But this is **not** the case. 
 
 ![storedjsonsample]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/storedjsonsample.png)
 
