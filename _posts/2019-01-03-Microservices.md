@@ -140,7 +140,7 @@ Features:
 (TODO)
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
-Figure X: System
+Figure X: Communication Topography
 
 ## Modules
 
