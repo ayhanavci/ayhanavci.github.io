@@ -35,7 +35,7 @@ tags:
 
 # Introduction
 
-I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are. I do not intend to explain everything about microservices. Just summarize some topics.
+I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are. 
 
 # Goals
 
@@ -56,7 +56,7 @@ I have been exploring software architecture patterns, and paid some attention to
 # Microservices Architecture
 
 Microservice architecture is a software architectural style focusing on building single function modules with well defined interfaces and operations.
-Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product (services) are distinct and loosely coupled or even completely decoupled.
+Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product are distinct and loosely coupled / decoupled.
 
 ## Domain Driven Design
 
@@ -68,7 +68,7 @@ Divide and conquer strategy for domain driven design. You break the domain down 
 
 ## Service Discovery / Registration
 
-Microservices are a combination of service aggregates. The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find and access them. This requires an API gateway in which consumer applications can meet with the services. So a service needs to be somehow discovered. They could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
+The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find and access them. This requires an API gateway in which consumer applications can meet with the services. So a service needs to be somehow discovered. They could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
 
 ## CQRS
 
@@ -96,7 +96,7 @@ Business transactions spanning multiple services require a mechanism to ensure d
 
 ### Event Broker Pattern - Choreography
 
-There is no central coordination. Each service produces events when a certain action occurs. Each service knows how to respond to related events produced by other services. So the responsibility of the full transaction is distributed among relevant services. This is aided by an implementation of the Broker software architectural pattern.
+There is no central coordination. Each service produces events when a certain action occurs. Each service knows how to respond to related events produced by other services. So the responsibility of the full transaction is distributed among relevant services. 
 
 ### Event Mediator Pattern - Orchestration, Controller or Processor
 
@@ -475,10 +475,6 @@ Developed using Python + Flask. Containerized. Product admins can Login, Add/Upd
 
 (TODO: Screenshots)
 
-## The Implementation
-
-(TODO)
-
 ## Running the Project
 
 All modules are prepared for Docker Compose. The classic option is running compose from terminal. You need to repeat the following process for each module. 
@@ -498,10 +494,6 @@ Below is how all the modules running looks like. First column is database docker
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server. 
 
 ## Conclusion
-
-(TODO)
-
-## Technologies
 
 (TODO)
 
