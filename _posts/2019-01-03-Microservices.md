@@ -92,15 +92,15 @@ Each service having its own private database helps decoupling them. Each aggrega
 
 ## Saga
 
-Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation;
+Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Sagas are used as state machines that coordinate components of the whole. There are two types;
 
 ### Event Broker Pattern - Choreography
 
 There is no central coordination. Each service produces events when a certain action occurs. Each service knows how to respond to related events produced by other services. So the responsibility of the full transaction is distributed among relevant services. 
 
-### Event Mediator Pattern - Orchestration, Controller or Processor
+### Event Mediator Pattern - Orchestration / Controller / Processor
 
-There is a central service responsible solely for coordination of other services and the workflow. This is related to an implementation of Mediator software architectural pattern.
+There is a central service responsible solely for coordination of other services and the workflow.
 
 # The Software
 
