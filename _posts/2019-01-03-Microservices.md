@@ -96,7 +96,7 @@ Business transactions spanning multiple services require a mechanism to ensure d
 
 ### Event Broker Pattern - Choreography
 
-There is no central coordination. Each service produces events when a certain action occurs. Each service knows how to respond to related events produced by other services. So the responsibility of the full transaction is distributed among relevant services. 
+There is no central coordination. Each service produces events when a certain action occurs and knows how to respond to events. So the responsibility of the full transaction is distributed among services. 
 
 ### Event Mediator Pattern - Orchestration / Controller / Processor
 
