@@ -157,7 +157,7 @@ I used Python with Flask often because it is arguably one of the fastest and cle
 |Accounting Web Service|Web Service|Javascript|Node|[node:alpine](https://hub.docker.com/_/node)|
 |Customer Web Service|Web Service|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
 |Order Web Service|Web Service|Java|JDK-Jersey|[maven:3.6-jdk-8-alpine](https://hub.docker.com/_/maven)|
-|Product Web Service|Web Service|Java|Python-Flask|[python:alpine](https://hub.docker.com/_/python/)|
+|Product Web Service|Web Service|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
 
 
 ## Platform Agnostic Design
