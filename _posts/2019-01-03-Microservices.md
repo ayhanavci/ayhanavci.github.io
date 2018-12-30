@@ -247,7 +247,6 @@ Figure 10. Customer Database after the story
 
 ### Event Bus
 
-(TODO: RabbitMQ. Pub/Sub pattern. Topic pattern. Queues, Exchange Names, Routing keys. Visuals)
 Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, Work Queues and RPCs. It is best to check the [official web site](https://www.rabbitmq.com/getstarted.html) to learn about how these patterns work. But here is an intro:
 
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
@@ -266,8 +265,7 @@ And below is how communication for Order Saga occurs. Notice that queues and Exc
 
 ![eventbusrouting2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting2.png)
 
-Figure 12. Event Saga communication between Services over Event Bus
-
+Figure 13. Event Saga communication between Services over Event Bus
 
 
 ## Order Saga
@@ -307,7 +305,7 @@ In a very basic, old school representation, if you remove everything related to 
 
 ![Order Flow]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderflowchart.png)
 
-Figure X: Old school flowchart
+Figure 14: Old school flowchart
 
 ## Docker Containers
 
@@ -330,23 +328,43 @@ Representational State Transfer is a software architectural style that defines a
 
 ### Customer Service
 
-(TODO)
-Python - Flask
+Python, Flask service. Provides the following Rest API
+
+* login-user
+* add-user
+* update-user
+* get-user
+* get-all-users
+* get-credit
+* set-credit 
 
 ### Order Service
 
-(TODO)
-Java - Jersey
+Java - Jersey service. Provides the following Rest API
+
+* place-order
+* get-orders
 
 ### Product Service
 
-(TODO)
-Python - Flask
+Python, Flask service. Provides the following Rest API
+
+* get-products
+* get-all-products
+* get-product-details
+* add-new-product
+* update-product
+* delete-product
+* get-categories
+* add-new-category
+* update-category
+* delete-category
 
 ### Accounting Service
 
-(TODO)
-Javascript - NodeJS
+Javascript - NodeJS service. Provides the following Rest API. (can add get-invoice)
+
+* get-revenue
 
 ## Tools
 
@@ -364,8 +382,12 @@ Figure 11. Event Bus
 
 ### Event Store Implementation
 
-(TODO)
-C# .NET Core
+C# .NET Core application that does the following;
+
+1. Receives write requests from services
+2. Stores the request
+3. Sends write success to the requesting service
+4. Publishes the change
 
 ### Reverse Proxy
 
@@ -492,14 +514,11 @@ Both websites run on ports 5001 and 5002 both of which you can edit from their y
 
 ## Conclusion
 
-(TODO)
+This article and the source code were a product of my self study journey. Microservices may seem to get things complicated but it is targeting relatively big and evolving projects. If you don't need it, don't use it. The limited business domain introduced here could be solved by a simple MVC application with a single database. On the other hand, giant companies such as Google, Microsoft and Amazon have all moved their environment into microservice architecture. To use the products of these companies, you don't need to know the architecture itself but it is my personal belief that it is important to learn the basics of any technology you use.
+Along the way, I have studied over 20 different software architecture patterns, took notes and coded them too. Maybe I will write about them some other time. At the end of the day, it was great fun and satisfying. Apologies for any grammar or technical mistakes and thank you for reading!
 
 ## Source Code
 
 [https://github.com/ayhanavci/Microservices](https://github.com/ayhanavci/Microservices){:height="175px" width="333px"}
 
 ```git pull https://github.com/ayhanavci/Microservices.git```
-
-## Links
-
-(TODO)
