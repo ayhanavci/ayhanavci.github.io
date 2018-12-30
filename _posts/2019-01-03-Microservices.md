@@ -286,11 +286,9 @@ Figure X: Old school flowchart
 
 ## Docker Containers
 
-Containers are brilliant technology that fits microservices architecture like a glove. From Docker website:
-Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications.
-In my implementation, each and every database, tool, web service and consumer is encapsulated inside a docker container.
+From the Docker website: Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications. 
 
-In most images, I used Alpine Linux when available. It is the most lightweight option works well. For each and every one of the modules, I wrote a docker compose file. In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**. 
+I encapsulated all modules in dockers except the android application. I used Alpine Linux when available. It is the most lightweight option. For each and every one of the modules, I wrote a docker compose file. In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**. 
 
 In most of the cases I used shell scripts to automate building the source code & executing the binaries. Most of them are named ```run.sh``` and some of them are ```build.sh```. Each module should be up and ready simply by calling ```docker-compose up``` from terminal on root folder of the module. The only exception is CouchDB which requires creating the user database explicitly.
 
@@ -346,8 +344,7 @@ C# .NET Core
 
 ### Reverse Proxy
 
-I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. Reverse proxy seemed like a good enough replacement. Basicly you use an http server as your central API gateway and configure it so that distributed consumer requests are delivered to appropriate services that could be running on anywhere on the network / internet. More details later.
-
+I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. Reverse proxy seemed like a good enough replacement.
 The reverse proxy acts as an API gateway. I have dockerized and configured a Nginx server and placed it inside the microservice network habitat. It detects the requests made to locations on its config and redirects it to the related docker container. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes.
 
 ```
@@ -462,8 +459,9 @@ Only couchDB requires the following command after it starts:
 
 Below is how all the modules running looks like. First column is database dockers: db_eventstore, db_customer, db_order, db_accounting. Second column is web services: service_product, service_customer, service_order, service_accounting. Third column are tools: event_bus, event_store, reverse_proxy. Fourth column is websites: website_ecommerce, website_manager.
 
+![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
 
-Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server. 
+Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server.
 
 ## Conclusion
 
