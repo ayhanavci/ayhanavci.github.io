@@ -170,17 +170,13 @@ In microservices, it is important to be flexible and dynamic. These are the desi
 
 * All services provide Rest API with Json objects. So virtually any consumer can communicate with them.
 
-* The Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
-
-* Any module can use whatever query database it wants to.
+* Any module can use whatever database it wants.
 
 * There is a single Event Store, modules send write requests to this event store through Event Bus. So they don't need to know how, when and where the data is written.
 
 * All modules are dockerized with Dockerfile and Docker Compose file provided. So they can be run on any host machine without having to know anything about it.
 
 * All modules have a defined Docker network name. So they have their own network in which they communicate with each other. The host network is irrelevant as long as Docker runs on it.
-
-To demonstrate these, I have implemented web services and consumers on a variety of platforms and languages.
 
 ## Aggregates
 
