@@ -137,7 +137,7 @@ Features:
 
 ## The Design
 
-(TODO)
+Every module is scalable. The system allows easy, fully decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to talk to Event Bus.
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure X: Communication Topography
