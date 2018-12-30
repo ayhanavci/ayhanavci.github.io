@@ -215,7 +215,7 @@ Figure X: Order Database after the story
 Customer database is on Redis and keeps key - value pairs in which the key is the Customer id and value is a Json object holding the details of the Customer. It also just keeps the latest information of the Customer. Looks weird, but I took the screenshot using Redis-Cli.
 
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
-Figure X: Order Database after the story
+Figure X: Customer Database after the story
 
 Service databases are displayed in the Aggregates Diagram below.
 
@@ -496,7 +496,9 @@ Developed using Python + Flask. Containerized. Product admins can Login, Add/Upd
 
 ## Source Code
 
-(TODO)
+[https://github.com/ayhanavci/Microservices](https://github.com/ayhanavci/Microservices)
+
+```git pull https://github.com/ayhanavci/Microservices.git```
 
 ## Links
 
