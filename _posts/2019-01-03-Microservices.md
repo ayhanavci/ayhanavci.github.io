@@ -80,15 +80,15 @@ Figure X: CQRS pattern simplified
 
 ### Event Sourcing
 
-Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of physically updating an existing data, you make a new record with the updated fields. You gather the state of your objects / business logic, by combining these recorded events. This allows new ways to perform rollback transactions and data audit. Recording the data becomes very simple and high performance.
+Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of updating an existing data, you make a new record with the updated fields. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
 
 ### Event Store Pattern
 
-Event store is a type of database system, optimized for storage of events. The data stored here never gets updated or deleted. The state changes of the objects required by the domain is handled by adding more events on top of the stack. It has a record focused database and provides API for the services that may want to use the store.
+Event store is a type of database system, optimized for storage of events. The data stored here never gets updated or deleted. It has a record focused database and provides API for the services that may want to use the store.
 
 ### Database Per Service
 
-Each service having its own database helps decoupling them. The output of decomposition are the service aggregates. And the database related to each aggregate only needs some of the whole data of the system. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service.
+Each service having its own private database helps decoupling them. Each aggregate only needs some part of the data. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service.
 
 ## Saga
 
