@@ -209,7 +209,7 @@ Figure X: CQRS in action
 5. The Customer decides he needs more money after the purchase and asks Product Manager to increase his credit. Product Manager __Updates__ the Customer's credit.
 
 ![addproduct]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/addproduct.png){:height="335px" width="256px"}
-![orders1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders1.png){:height="480px" width="256px"}
+![orders1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders1.png){:height="335px" width="180px"}
 
 Figure X: Product manager adds a product, Customer orders the product
 
