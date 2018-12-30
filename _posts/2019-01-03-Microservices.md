@@ -209,12 +209,9 @@ Figure X: CQRS in action
 5. The Customer decides he needs more money after the purchase and asks Product Manager to increase his credit. Product Manager __Updates__ the Customer's credit.
 
 ![addproduct]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/addproduct.png){:height="335px" width="256px"}
-
-Figure X: Product manager adds a product
-
 ![orders1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders1.png){:height="480px" width="256px"}
 
-Figure X: Customer orders the product
+Figure X: Product manager adds a product, Customer orders the product
 
 Event Store after these events occur:
 
