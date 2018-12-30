@@ -141,6 +141,8 @@ Features:
 
 ## Modules
 
+I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I would implement everything in Python if I didn't want to introduce some variety.
+
 | Module | Category  | Programming Language | Sdk | Docker |
 | ------ | --------- | -------------------- | -------- | ------ |
 |ECommerce Website|Consumer|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
