@@ -37,7 +37,7 @@ tags:
 
 I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are. I do not intend to explain everything about microservices. Just summarize some topics.
 
-## Goals
+# Goals
 
 * Design and implement common Microservice concepts. Implementation should be a fully functional.
 
@@ -52,10 +52,6 @@ I have been exploring software architecture patterns, and paid some attention to
 * Implement a basic event store, api gateway, various web services and multiple consumers.
 
 * Test and upload the source code with its documentation.
-
-## Source Code
-
-(TODO)
 
 # Microservices Architecture
 
@@ -143,7 +139,7 @@ Features:
 
 (TODO)
 
-## Platform Agnostic
+## Platform Agnostic Design
 
 In microservices, it is important to be flexible and dynamic. These are the design principles related to that.
 
@@ -153,7 +149,7 @@ In microservices, it is important to be flexible and dynamic. These are the desi
 
 * The Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
 
-* Any module can use whatever query database it wants to. 
+* Any module can use whatever query database it wants to.
 
 * There is a single Event Store, modules send write requests to this event store through Event Bus. So they don't need to know how, when and where the data is written.
 
@@ -174,7 +170,40 @@ But we are not using that. We have implemented a type of CQRS pattern. So we hav
 
 Event Sourcing Database: This is just a stack of every significant event that has happened in the system as a whole. The database is document oriented as opposed to RDBMS. It only adds and it never updates or deletes any data.
 
-Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Service databases are included in the Aggregates Diagram.
+Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Instead of a relational database, here is what Event Store records when events occur when users take the following actions.
+
+1. Product Manager logs in, __Adds__ a new product.
+2. Product Manager decides he made a mistake in parameters, __Updates__ the product he just created
+3. A Customer logs in, takes a look at the products and decides to __Order__ the product that was previously recorded.
+4. The Order Saga communications occur and the system __Approves__ the order and it is now ready to get shipped.
+5. The Customer decides he needs more money after the purchase and asks Product Manager to increase his credit. Product Manager __Updates__ the Customer's credit.
+
+![addproduct]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/addproduct.png)
+Figure X: Product manager adds a product
+
+![orders]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerorders.png)
+Figure X: Customer orders the product
+
+Event Store after these events occur:
+
+![eventstoredata]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventstoredata.png)
+Figure X: Event Store after the story.
+
+As you can see, there are NO updates or deletes actually happening in the Event Store. Only inserts. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
+
+![storedjsonsample]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/storedjsonsample.png)
+Figure X: Stored Json for Add Product event.
+
+This is how synchronized, actual data is actually stored. The Query databases for each service (database per service & Query portion of CQRS pattern) is a different story. After Event Store secures the data, it fires an event through the Event Bus, notifying all interested parties that a new record is made. And they also update their local databases, if they need to do so. 
+
+For instance, the add product event is fired and the Product Service records it into its local SQLite database. And when Update Record event occurs, it simply updates the state of its product. Event Store keeps all the changes but ignores the state, Service database on the other hand just keeps the latest state.
+
+![productlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/productlocaldb.png)
+Figure X: Product Database after the story
+
+All other local databases are also effected by our little story. Order Service keeps the latest state of the Order and Customer service keeps the latest Credit score of the Customer. 
+
+Service databases are included in the Aggregates Diagram.
 
 ## Aggregates
 
@@ -448,6 +477,10 @@ Developed using Python + Flask. Containerized. Product admins can Login, Add/Upd
 (TODO)
 
 ## Technologies
+
+(TODO)
+
+## Source Code
 
 (TODO)
 
