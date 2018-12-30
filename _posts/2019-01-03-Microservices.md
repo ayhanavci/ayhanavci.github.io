@@ -141,7 +141,7 @@ Features:
 
 ## Modules
 
-I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I would implement everything in Python if I didn't want to introduce some variety.
+I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I would implement everything in Python if I didn't want to introduce some variety. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment. 
 
 | Module | Category  | Programming Language | Sdk | Docker |
 | ------ | --------- | -------------------- | -------- | ------ |
@@ -150,10 +150,10 @@ I used Python with Flask often because it is arguably one of the fastest and cle
 |Native Android Application|Consumer|Java|Android SDK|-|
 |Accounting Database|Database|-|-|[couchdb:latest](https://hub.docker.com/_/couchdb)|
 |Customer Database|Database|-|-|[redis:alpine](https://hub.docker.com/_/redis)|
-|Event Store Database|Database|-|-|[mongo](https://hub.docker.com/_/mongo) and [mongo-express](https://hub.docker.com/_/mongo-express) to manage database|
+|Event Store Database|Database|-|-|[mongo](https://hub.docker.com/_/mongo)<br>[mongo-express](https://hub.docker.com/_/mongo-express)|
 |Order Database|Database|-|-|[postgres:alpine](https://hub.docker.com/_/postgres)|
 |Event Bus|Support Tool|-|-|[rabbitmq:management](https://hub.docker.com/_/rabbitmq)|
-|Event Store|Support Tool|C#|.NET Core 2.1|[microsoft/dotnet:2.1-sdk-alpine](https://hub.docker.com/r/microsoft/dotnet) to compile the code and [microsoft/dotnet:2.1-aspnetcore-runtime-alpine](https://hub.docker.com/r/microsoft/dotnet) for deployment|
+|Event Store|Support Tool|C#|.NET Core 2.1|[microsoft/dotnet:2.1-sdk-alpine](https://hub.docker.com/r/microsoft/dotnet) <br> [microsoft/dotnet:2.1-aspnetcore-runtime-alpine](https://hub.docker.com/r/microsoft/dotnet)|
 |Reverse Proxy|Support Tool|-|-|[nginx:alpine](https://hub.docker.com/_/nginx)|
 |Accounting Web Service|Web Service|Javascript|Node|[node:alpine](https://hub.docker.com/_/node)|
 |Customer Web Service|Web Service|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
