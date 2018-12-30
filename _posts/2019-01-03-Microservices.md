@@ -249,7 +249,7 @@ Figure 10. Customer Database after the story
 
 Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, Work Queues and RPCs. It is best to check the [official web site](https://www.rabbitmq.com/getstarted.html) to learn about how these patterns work. But here is an intro:
 
-![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
+![rabbit1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/rabbit1.png)
 
 Figure 11. Producer - Consumer model with Queues, Exchanges and Routing keys
 
