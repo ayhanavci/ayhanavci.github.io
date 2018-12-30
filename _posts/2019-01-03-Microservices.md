@@ -282,9 +282,7 @@ I have excluded some of the rollback transactions. The only checks here are if t
 * Customer service reduces the customer credit.
 * Accounting service creates an invoice.
 
-Before any real change to product, credit or invoice information, everything is first approved and recorded by the Event Store. It could cancel the transaction at any point with whatever criteria it wants. But I just made it a dummy service that records and approves everything.
-
-In a very basic, old school representation, if you remove everything related to distributed microservice architecture and asynchronous working, this flowchart is what the order saga does.
+In a very basic, old school representation, if you remove everything related to distributed microservice architecture and asynchronous working, this flowchart is what the order saga essentially does.
 
 ![Order Flow]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderflowchart.png)
 
