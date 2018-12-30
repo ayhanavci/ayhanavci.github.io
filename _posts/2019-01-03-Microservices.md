@@ -484,7 +484,24 @@ Developed using Python + Flask. Containerized. Product admins can Login, Add/Upd
 
 ## Running the Project
 
-(TODO)
+All modules are prepared for Docker Compose. The classic option is running compose from terminal. You need to repeat the following process for each module. 
+
+1. Open a terminal. Change directory to the module
+2. Type ```docker-compose up```
+
+That's it. Everything should install inside its own container and run in there. Aside from Docker itself, you don't need to explicitly install anything else.
+
+Only couchDB requires the following command after it starts:
+
+```curl -X PUT http://accounting_usr:accounting_pass@127.0.0.1:5984/_users```
+
+Here is how all the modules running looks like;
+
+![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
+Figure X: CQRS in action
+
+
+Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server. 
 
 ## Conclusion
 
@@ -496,7 +513,7 @@ Developed using Python + Flask. Containerized. Product admins can Login, Add/Upd
 
 ## Source Code
 
-[https://github.com/ayhanavci/Microservices](https://github.com/ayhanavci/Microservices)
+[https://github.com/ayhanavci/Microservices](https://github.com/ayhanavci/Microservices){:height="175px" width="333px"}
 
 ```git pull https://github.com/ayhanavci/Microservices.git```
 
