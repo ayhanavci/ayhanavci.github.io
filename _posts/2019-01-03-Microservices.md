@@ -136,7 +136,8 @@ Features:
 
 ## The Design
 
-Every module is scalable. The system allows easy, fully decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to talk to Event Bus.
+Every module is scalable. The system allows easy, fully decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to talk to Event Bus. 
+Each module is distributed. You can pick any of the modules and deploy anywhere as long as it is accessible in your Docker network.
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure X: Communication Topography
@@ -334,7 +335,7 @@ Javascript - NodeJS
 
 ## Tools
 
-(TODO)
+These provide the system ability to communicate.
 
 ### Event Bus 
 
@@ -349,7 +350,7 @@ Figure X: Event Bus
 ### Event Store Implementation
 
 (TODO)
-C# .NET Core 
+C# .NET Core
 
 ### Reverse Proxy
 
