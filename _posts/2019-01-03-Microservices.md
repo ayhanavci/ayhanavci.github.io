@@ -208,7 +208,10 @@ Below is the Order database. It just keeps the latest state of the order. Each w
 ![orderlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderlocaldb.png)
 Figure X: Order Database after the story
 
-Customer database is on Redis and keeps key - value pairs in which the key is the Customer id and value is a Json object holding the details of the Customer. It also just keeps the latest information of the Customer.
+Customer database is on Redis and keeps key - value pairs in which the key is the Customer id and value is a Json object holding the details of the Customer. It also just keeps the latest information of the Customer. Looks weird, but I took the screenshot using Redis-Cli.
+
+![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
+Figure X: Order Database after the story
 
 Service databases are displayed in the Aggregates Diagram below.
 
