@@ -457,7 +457,7 @@ Only couchDB requires the following command after it starts:
 
 ```curl -X PUT http://accounting_usr:accounting_pass@127.0.0.1:5984/_users```
 
-Below is how all the modules running looks like. First column is database dockers: db_eventstore, db_customer, db_order, db_accounting. Second column is web services: service_product, service_customer, service_order, service_accounting. Third column are tools: event_bus, event_store, reverse_proxy. Fourth column is websites: website_ecommerce, website_manager.
+Below is how all the modules running looks like. 
 
 ![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
 
