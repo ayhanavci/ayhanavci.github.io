@@ -267,7 +267,6 @@ And below is how communication for Order Saga occurs. Notice that queues and Exc
 
 Figure 13. Event Saga communication between Services over Event Bus
 
-
 ## Order Saga
 
 This is the one and only saga that spans over all services. Everything begins when a customer likes a product and places an order. To keep messages simple, he can place 1 product at a time so there is no shopping chart.
@@ -286,22 +285,20 @@ Figure X: Order Saga Sequence Diagram
 
 I have excluded some of the rollback transactions. The only checks here are if the product is in store and if the user has enough credits to buy it.
 
-1. Order service sends a message to Event Store, saying that it wants to place an order.
-2. Event Store records the request. Tells Order service that the request is approved.
-3. Since data is now atomicly recorded in the Event Store, Order service is now allowed to record the purchase request into its own database.
-4. Order service starts the saga. Through Event Bus, it makes a broadcast to everything that listens to the saga events.
-5. Product, Customer and Accounting services are interested in the saga. They asynchronously receive the event and respond to it.
-* Product service checks if the product is in stock. Sends the price & stock information response back to the Order Service.
-* Customer service checks if the customer has enough credit for the purchase. Sends the credit response back to Order Service.
-* Accounting service does nothing. It is only interested in the final outcome.
-6. Order service checks the responses and if product is in stock and the customer has enough credits, it approves the purchase but doesn't finalize yet. Sends the finalize request to Event Store.
-7. Event Store records the purchase and responds to Order Service.
-8. Order Service updates it Query database that the order suceeded. Then broadcasts to all recepients that an Order is successfully placed. The following events occur asynchronously.
+1. Order service sends a place order message to Event Store.
+2. Event Store records the request. Tells Order service that the request is approved. Order service updates its query db.
+3. Order service starts the saga. Through Event Bus, it makes a broadcast to everything that listens to the saga events.
+4. Product, Customer and Accounting services are interested in the saga.
+* Product service sends the price & stock information to the Order Service.
+* Customer service sends the credit information to the Order Service.
+5. Order service checks if the product is in stock and the customer has enough credits and approves/denies the purchase.
+6. Event Store records the purchase and responds to Order Service to finalize.
+7. Order Service updates it Query database. Broadcasts to all recepients that an Order is finalized.
 * Product service reduces the units in stock.
 * Customer service reduces the customer credit.
 * Accounting service creates an invoice.
 
-In a very basic, old school representation, if you remove everything related to distributed microservice architecture and asynchronous working, this flowchart is what the order saga essentially does.
+In a very basic representation, if you remove everything related to distributed microservice architecture and asynchronous working, this flowchart is what the order saga essentially does.
 
 ![Order Flow]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderflowchart.png)
 
@@ -311,13 +308,13 @@ Figure 14: Old school flowchart
 
 From the Docker website: Docker containers are a key enabling technology for microservices, providing a lightweight encapsulation of each component so that it is easier to maintain and update independently. With Docker Enterprise, you can independently deploy and scale each microservice, coordinate their deployment through Swarm or Kubernetes orchestration and collaborate across teams through a consistent way of defining applications. 
 
-I encapsulated all modules in dockers except the android application. I used Alpine Linux when available. It is the most lightweight option. For each and every one of the modules, I wrote a docker compose file. In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**. 
+I encapsulated all modules in Linux dockers except for the android application. I used Alpine when available. It is the most lightweight option. For each and every one of the modules, there is a docker compose file. In most docker compose files, you can see "msdemo" name. It is the prefix I came up with, meaning: **"Micro Services Demonstration"**.
 
 In most of the cases I used shell scripts to automate building the source code & executing the binaries. Most of them are named ```run.sh``` and some of them are ```build.sh```. Each module should be up and ready simply by calling ```docker-compose up``` from terminal on root folder of the module. The only exception is CouchDB which requires creating the user database explicitly.
 
 ### Networks
 
-I have created more than necessary amount of docker networks just to demonstrate how granular and flexible the networking can be done. For instance, Order service and Order database have their own private network so that nothing outside can access the Order database. 
+I have created more than necessary amount of docker networks just to demonstrate how granular and flexible the networking can be done. For instance, Order service and Order database have their own private network so that nothing outside can access the Order database.
 
 Here is a list of docker networks on my machine. A good amount of them are used for this project.
 ![networkslist]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networkslist.png)
@@ -336,7 +333,7 @@ Python, Flask service. Provides the following Rest API
 * get-user
 * get-all-users
 * get-credit
-* set-credit 
+* set-credit
 
 ### Order Service
 
@@ -392,7 +389,7 @@ C# .NET Core application that does the following;
 ### Reverse Proxy
 
 I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. Reverse proxy seemed like a good enough replacement.
-The reverse proxy acts as an API gateway. I have dockerized and configured a Nginx server and placed it inside the microservice network habitat. It detects the requests made to locations on its config and redirects it to the related docker container. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes.
+The reverse proxy acts as an API gateway. I have dockerized and configured a Nginx server and placed it inside the docker network. It detects the requests redirects it to the related docker container. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes.
 
 ```
 worker_processes 1;
@@ -485,7 +482,10 @@ Developed using Python + Flask. Containerized. Using this website, users can Reg
 
 ### ECommerce Native Android App
 
-Developed as a native Android apk using Java. The purpose is the same as ECommerce website but with few options missing.
+Developed as a native Android apk using Java. The purpose is the same as ECommerce website but with few options missing (you can't update user details or view categories)
+
+![android1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/android1.png){:height="320px" width="170px"}
+![android2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/android2.png){:height="320px" width="170px"}
 
 ### Management Website
 
