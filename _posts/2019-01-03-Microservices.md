@@ -35,7 +35,7 @@ tags:
 
 # Introduction
 
-I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are. I do not intend to explain everything about microservices. Just summarize some topics. This is not a theoric article but I am going to explain and document the design and briefly explain some of the technologies and the source code.
+I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper into subject, I kept on writing some small pieces of code along with my notes. Eventually I thought, why not design and code a working microservice? And here we are. I do not intend to explain everything about microservices. Just summarize some topics.
 
 ## Goals
 
@@ -53,59 +53,31 @@ I have been exploring software architecture patterns, and paid some attention to
 
 * Test and upload the source code with its documentation.
 
-## Structure
-
-* The software patterns and then the Microservices concepts are going to be summarized.
-
-* The design of the prototype will be explained with visuals.
-
-* The modules will be explained.
-
 ## Source Code
 
 (TODO)
 
-# The Concepts
-
-## Software Architecture Patterns
-
-Architecture pattern is a reusable solution to a commonly occurring problem in software architecture. These are not to be confused with [Design Patterns](https://www.goodreads.com/book/show/85009.Design_Patterns). Design patterns are a piece of code in your project, architectural pattern is the design and structure of your software as a whole. There could be multiple design patterns and architectural patterns in your project.
-
-Various architecture patterns are:
-
-* **Monolithic**: The software is composed in one piece, with tightly coupled modules. They have their advantages over microservices or other change friendly systems if your product is very well defined, and doesn't need changes.
-* **Layered**: Same as monolithic but the application is divided into components, developed in a horizontal fashion. The layers usually only communicate with the adjacent components. Great for embedded.
-* **N-Tier**: Very similar to layered architecture. But implies that it can be distributed so the components can run on different machines as different instances. Most typical is 3-tiered architecture with Presentation - Business - Data layers. Modules are generally loosely coupled.
-* **Event driven architecture**: Event driven defines the communication model between components of the software. Events could be in the form of user events, socket events, IO completion ports, pipes etc. Event driven architecture could be in Broker pattern or in Mediator pattern.
-* **Microkernel**: Your software has a bare skeleton that works, and it allows seperate modules get attached to it. In essence, this is a plugin system. Like the old Winamp plugins, or Eclipse, Visual Studio etc. all of which has a plugin market. There are also operating systems based on microkernel architecture.
-* **Model-View-Controller (and Model-View-Template)**: A very popular pattern mostly used in web development. The code is seperated into model, view and controller components, seperating the business logic, representation and data access.
-* Various other patterns are; Blackboard, Pipes and Filters, Peer-to-Peer, Web Queue Worker, Client-Server, Space-based, Event Bus, CQRS, Microservices. Last three will further be explained below.
-
-(TODO: Visual representations of some of the patterns)
-
-Some of the patterns naturally includes others. Some are obselete, some are modern. I don't think there is a consensus on the whole list, even among the same organization. For instance some Microsoft articles have very different pattern list than the others.
-
-## Microservices Architecture
+# Microservices Architecture
 
 Microservice architecture is a software architectural style focusing on building single function modules with well defined interfaces and operations.
-Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product (services) are distinct and loosely coupled or even completely decoupled. Since there is no single monolithic application, and thanks to decoupling nature, it is easier to continue evolving your product by adding more seperately developed components. Compared to more traditional styles, microservices approach tend to work better for agile and devops.
+Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product (services) are distinct and loosely coupled or even completely decoupled.
 
-### Domain Driven Design
+## Domain Driven Design
 
-Domain Driven Design is an approach to developing software systems, and in particular systems that are complex, that have ever-changing business rules, and that you expect to last for the long term within the enterprise. In addition to standart software development literature, you add concepts like Ubiquitous Language that help with business to technical communication.
+Domain Driven Design is an approach to developing software systems, and in particular systems that are complex, that have ever-changing business rules, and that you expect to last for the long term within the enterprise.
 
-### Decomposition and Aggregates
+## Decomposition and Aggregates
 
-Divide and conquer strategy for domain driven design. You break the domain down into subdomains and define the relationship between them. This helps understanding and defining the parts and the steps of your software solution, and create a stable, modular system. In the end, decomposition outputs aggregates and services.
+Divide and conquer strategy for domain driven design. You break the domain down into subdomains and define the relationship between them. This helps understanding and defining the parts and the steps of your software solution, and create a stable, modular system. 
 
 ## Service Discovery / Registration
 
 Microservices are a combination of service aggregates. The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time. The consumers of these services should be able to find these services and use them for their intended purposes. This requires an API gateway in which consumer applications can meet with the services.
-To solve this requirement, a service needs to be discovered. You could either design your environment so that each and every service is discovered from a central mechanism, or each service sends their information (ip, port, etc.) whenever they are up and running. 
+To solve this requirement, a service needs to be discovered. Each and every service could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
 
 ## CQRS
 
-At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. I am not going to discuss it here since it is not the goal and I am not an expert. But in practice this approach may seperate read and write databases themselves and the structure of the data on each database. When recording data, Event Sourcing usually goes together with CQRS pattern.
+At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. In practice, this approach seperates read and write databases. Event Sourcing usually goes together with CQRS pattern.
 
 ![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrs.png)
 
@@ -113,7 +85,7 @@ Figure X: CQRS pattern simplified
 
 ### Event Sourcing
 
-Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of physically updating an existing data, you make a new record with the updated fields. You gather the state of your objects / business logic, by combining these recorded events. This allows new ways to perform rollback transactions and data audit. Recording the data becomes very simple and high performance. 
+Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion, like a log file. So instead of physically updating an existing data, you make a new record with the updated fields. You gather the state of your objects / business logic, by combining these recorded events. This allows new ways to perform rollback transactions and data audit. Recording the data becomes very simple and high performance.
 
 ### Event Store Pattern
 
@@ -121,21 +93,11 @@ Event store is a type of database system, optimized for storage of events. The d
 
 ### Database Per Service
 
-Each service having its own database helps decoupling them. The output of decomposition are the service aggregates. And the database related to each aggregate only needs some of the whole data of the system. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service. One implementation could be like this;
-
-* Whenever a record event occurs, it gets broadcast through event bus.
-
-* Event Store records all the data and we use it only for recording.
-
-* If any service needs the data, it registers to catch the record event on the event bus. And record it to its own local database.
-
-* When a service needs to retrieve the data, it uses its own local, read database instead of having to resort to event store.
-
-Seperation of read & write databases makes the process fast and lean.
+Each service having its own database helps decoupling them. The output of decomposition are the service aggregates. And the database related to each aggregate only needs some of the whole data of the system. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service.
 
 ## Saga
 
-Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation, both of these scenarios typically uses an Event Bus for communication, as the media for the event traffic. In my case, I used a choreography saga over an event bus.
+Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. Sagas are used as state machines that coordinate components of the whole. There are two types of saga implementation;
 
 ### Event Broker Pattern - Choreography
 
@@ -145,30 +107,9 @@ There is no central coordination. Each service produces events when a certain ac
 
 There is a central service responsible solely for coordination of other services and the workflow. This is related to an implementation of Mediator software architectural pattern.
 
-## Platform Agnostic Integration
-
-In microservices, it is important to be flexible and dynamic in your continuous development and integration. With that in mind, I designed my development environment so that:
-
-* Any module can be implemented in any programming language as long as the established communication is satisfied.
-
-* All services provide Rest API with Json objects. So virtually any consumer can communicate with them.
-
-* The Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
-
-* Any module can use whatever query database it wants to.
-
-* There is a single Event Store, modules send write requests to this event store through Event Bus. So they don't need to know how, when and where the data is written.
-
-* All modules are dockerized with Dockerfile and Docker Compose file provided. So they can be run on any host machine without having to know anything about it.
-
-* All modules have a defined Docker network name. So they have their own network in which they communicate with each other. The host network is irrelevant as long as Docker runs on it.
-
-To demonstrate that, I have implemented web services and consumers on a wide variety of platforms. The full list will be given later.
-
 # The Software
 
-The business domain I chose is one of the most classic ones so it is very easy to grasp: An ecommerce website. There are products and categories in it. Customers can register, login and browse products. Check their prices and purchase products. If their credit is sufficient and there are enough units in stock, the order succeeds. Product manager can log in to seperate website to edit products, categories and user credits.  
-It is important to note that this sort of solution could be implemented, say, as a monolithic MVC application way faster and simpler. But we are going to use Microservices architecture anyway.
+The business domain I chose is one of the most classic ones so it is very easy to grasp: An ecommerce website. 
 
 ## User Stories
 
@@ -201,6 +142,26 @@ Features:
 ## The Design
 
 (TODO)
+
+## Platform Agnostic
+
+In microservices, it is important to be flexible and dynamic. These are the design principles related to that.
+
+* Any module can be implemented in any programming language as long as the established communication is satisfied. There can be any number of modules attached to the system later on.
+
+* All services provide Rest API with Json objects. So virtually any consumer can communicate with them.
+
+* The Event Bus uses Amqp protocol with RabbitMQ as the broker. Any module can communicate with the others as long as it talks Amqp.
+
+* Any module can use whatever query database it wants to. 
+
+* There is a single Event Store, modules send write requests to this event store through Event Bus. So they don't need to know how, when and where the data is written.
+
+* All modules are dockerized with Dockerfile and Docker Compose file provided. So they can be run on any host machine without having to know anything about it.
+
+* All modules have a defined Docker network name. So they have their own network in which they communicate with each other. The host network is irrelevant as long as Docker runs on it.
+
+To demonstrate these, I have implemented web services and consumers on a variety of platforms and languages.
 
 ## The Data Model
 
