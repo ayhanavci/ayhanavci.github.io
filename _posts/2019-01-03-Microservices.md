@@ -139,7 +139,7 @@ Features:
 
 (TODO)
 
-![allsystem]({{ site.url }}{{ site.baseurl }}/assets/img/microservices/allsystem.png)
+![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure X: Communication Topography
 
 ## Modules
