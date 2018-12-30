@@ -192,9 +192,16 @@ Figure X: Aggregates Diagram
 
 ## The Data Model
 
-Event Sourcing Database: This is just a stack of every significant event that has happened in the system as a whole. The database is document oriented as opposed to RDBMS. It only adds and it never updates or deletes any data.
+* Event Store Database: MongoDB. Keeps Json data. Never updates or deletes. Just inserts.
+* Customer Database: Redis. Keeps key-value pairs. Key is username, value is user data.
+* Product Database: SQLite. Category - Product relational model. Since this is an SQLite database, it has limitations on scaling.
+* Order Database: PostgreSQL. Records Orders and states.
+* Accounting Database: CouchDB. Records Invoices after an Order is finalized.
 
-Aside from Event Store database, each service has its own database which merely includes just some related portions of the data inside Event Store. Service databases typically hold the latest states of the data. Event Store database on the other hand, keeps every single change and isn't interested in the latest state. Instead of a relational database, here is what Event Store records when events occur when users take the following actions.
+The key here is that everything worth recording must be first recorded on the Event Store since this is the source of all real data. The other databases are all just for reading. Below is a small sample on how it works. If a client asks for products (GET method), then the service queries its local database and returns the results without having to deal with the event store. But if the client performs an add/update/delete operation (POST method) then the service first ensure the Event Store records it first. Then it updates its own database as well.
+
+![cqrssequence]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrssequence.png)
+Figure X: CQRS in action
 
 1. Product Manager logs in, __Adds__ a new product.
 2. Product Manager decides he made a mistake in parameters, __Updates__ the product he just created
@@ -439,18 +446,6 @@ networks:
       name: msdemo-nw-customer
 ```
 
-## Databases
-
-* Event Store Database: MongoDB. Keeps Json data. Never updates or deletes. Just inserts.
-* Customer Database: Redis. Keeps key-value pairs. Key is username, value is user data.
-* Product Database: SQLite. Category - Product relational model. Since this is an SQLite database, it has limitations on scaling.
-* Order Database: PostgreSQL. Records Orders and states.
-* Accounting Database: CouchDB. Records Invoices after an Order is finalized.
-
-The key here is that everything worth recording must be first recorded on the Event Store since this is the source of all real data. The other databases are all just for reading. Below is a small sample on how it works. If a client asks for products (GET method), then the service queries its local database and returns the results without having to deal with the event store. But if the client performs an add/update/delete operation (POST method) then the service first ensure the Event Store records it first. Then it updates its own database as well.
-
-![cqrssequence]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrssequence.png)
-Figure X: CQRS in action
 
 ## Consumers
 
