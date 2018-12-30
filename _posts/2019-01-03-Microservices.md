@@ -136,7 +136,7 @@ Features:
 
 ## The Design
 
-Modules are scalable. The system allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to talk to Event Bus. Each module is distributed. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network.
+Modules are scalable. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. Modules are distributed. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network.
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure X: Communication Topography
