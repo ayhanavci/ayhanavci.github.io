@@ -162,7 +162,6 @@ I used Python with Flask often because it is arguably one of the fastest and cle
 |Order Web Service|Web Service|Java|JDK-Jersey|[maven:3.6-jdk-8-alpine](https://hub.docker.com/_/maven)|
 |Product Web Service|Web Service|Python|Flask|[python:alpine](https://hub.docker.com/_/python/)|
 
-
 ## Platform Agnostic Design
 
 In microservices, it is important to be flexible and dynamic. These are the design principles related to that.
@@ -182,7 +181,6 @@ In microservices, it is important to be flexible and dynamic. These are the desi
 * All modules have a defined Docker network name. So they have their own network in which they communicate with each other. The host network is irrelevant as long as Docker runs on it.
 
 To demonstrate these, I have implemented web services and consumers on a variety of platforms and languages.
-
 
 ## Aggregates
 
@@ -217,14 +215,13 @@ Event Store after these events occur:
 
 Figure X: Event Store after the story.
 
-As you can see, there are NO updates or deletes actually happening in the Event Store. Only inserts. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
-
+There are NO updates or deletes actually happening in the Event Store. Only inserts. The Update Json message here doesn't update any previous record. Every event is just stacked on top of each other with its Json Object. Below is how a stored json looks like for adding a product.
 
 ![storedjsonsample]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/storedjsonsample.png)
 
 Figure X: Stored Json for Add Product event.
 
-This is how synchronized, actual data is actually stored. The Query databases for each service (database per service & Query portion of CQRS pattern) is a different story. After Event Store secures the data, it fires an event through the Event Bus, notifying all interested parties that a new record is made. And they also update their local databases, if they need to do so. 
+This is how synchronized data is stored. After Event Store secures the data, it fires an event through the Event Bus, notifying all interested parties that a new record is made. And they also update their local databases, if they require to do so.
 
 For instance, the add product event is fired and the Product Service records it into its local SQLite database. And when Update Record event occurs, it simply updates the state of its product. Event Store keeps all the changes but ignores the state, Service database on the other hand just keeps the latest state.
 
