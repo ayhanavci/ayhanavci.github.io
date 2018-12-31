@@ -122,7 +122,7 @@ Table 1. User Stories
 
 ## Topology
 
-Modules are scalable and distributed. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network. 
+Modules are scalable and distributed. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network. For instance, I added Accounting service after the system was completed already.
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure 2. Communication Topology
