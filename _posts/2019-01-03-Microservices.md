@@ -129,7 +129,7 @@ Figure 2. Communication Topography
 
 ## Modules
 
-I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. Only the desire for variety prevented me to do so. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment
+I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I used others too, just for the sake of having a variety. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment
 
 | Module | Category  | Programming Language | Sdk | Docker |
 | ------ | --------- | -------------------- | -------- | ------ |
