@@ -241,7 +241,7 @@ Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, W
 
 ![rabbit1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/rabbit1.png)
 
-Figure 11. Producer - Consumer model with Queues, Exchanges and Routing keys
+Figure 12. Producer - Consumer model with Queues, Exchanges and Routing keys
 
 Any application can publish events into any routing key through any exchange. Interested consumers can create their own queues and wait for the messages they have subscribed into. In this example Consumer 1 is interested in Key 1, Consumer 2 is interested in Key 2 and Consumer 3 is interested in both types of events.
 
@@ -251,7 +251,7 @@ Below is how Event Store communicates with services to record and publish events
 
 ![eventbusrouting1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting1.png)
 
-Figure 12. Event Store communication with Services over Event Bus
+Figure 13. Event Store communication with Services over Event Bus
 
 First one is when services POST api are called so each service decides to record the data on the Event Store. The following three are the responses. And the last one is event broadcast on the Event Bus.
 
@@ -259,7 +259,7 @@ And below is how communication for Order Saga occurs. Notice that queues and Exc
 
 ![eventbusrouting2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting2.png)
 
-Figure 13. Event Saga communication between Services over Event Bus
+Figure 14. Event Saga communication between Services over Event Bus
 
 ## Order Saga
 
@@ -275,7 +275,7 @@ Prelude:
 The Order choreography:
 
 ![Order Saga]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/ordersaga.png)
-Figure X: Order Saga Sequence Diagram
+Figure 15: Order Saga Sequence Diagram
 
 I have excluded some of the rollback transactions. The only checks here are if the product is in store and if the user has enough credits to buy it.
 
@@ -296,7 +296,7 @@ In a very basic representation, if you remove everything related to distributed 
 
 ![Order Flow]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/orderflowchart.png)
 
-Figure 14: Old school flowchart
+Figure 16: Old school flowchart
 
 ## Docker Containers
 
@@ -310,6 +310,8 @@ In most of the cases I used shell scripts to automate building the source code &
 
 Here is a list of docker networks on my machine. A good amount of them are used for this project.
 ![networkslist]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networkslist.png)
+
+Figure 17: Docker Networks
 
 ## RESTful Web Services
 
@@ -438,6 +440,8 @@ The consumers are any number of clients who use the webservices for whatever log
 ![android1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/android1.png){:height="320px" width="170px"}
 ![android2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/android2.png){:height="320px" width="170px"}
 
+Figure 18. Android application screenshots
+
 **Management Website**: Developed using Python + Flask. Containerized. Product admins can Login, Add/Update/Delete Categories and Products, Edit customer credits, View all Orders history and their status.
 
 ## Running the Project
@@ -457,7 +461,7 @@ Below is how all the modules running looks like.
 
 ![alldockersrunning]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/alldockersrunning.png)
 
-Figure 12. All dockers running on terminal
+Figure 19. All dockers running on terminal
 
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server.
 
