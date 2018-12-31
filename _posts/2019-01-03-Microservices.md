@@ -35,7 +35,7 @@ tags:
 
 # Introduction
 
-I have been exploring software architecture patterns, and paid some attention to microservices which has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper, I kept on writing some small pieces of code along with my notes. Eventually I have decided to turn the pseudo codes into working software. And here we are.
+I have been exploring software architectural patterns, and spent some time on microservices. It has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper, I kept on writing some small pieces of code along with my notes. Eventually I have decided to turn it into a working software. And here we are.
 
 # Goals
 
