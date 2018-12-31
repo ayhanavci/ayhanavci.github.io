@@ -9,7 +9,7 @@ header:
 categories:
   - Projects
 tags:
-  - Software Architecture Patterns
+  - Software Architecturual Patterns
   - C Sharp
   - Node.js
   - Python
@@ -231,7 +231,7 @@ Figure 10. Customer Database after the story
 * The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ, uses Amqp.
 * These are happening within docker containers so there is also Docker networking involved in all of these communications.
 
-**Event Bus**:  Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location or even existence. Instead of directly sending events to its recipient, modules send it to the event bus. Each service just responds to the events it subscribed to. Web services do NOT and should not call each other's API otherwise you are going to get a very messy, tightly coupled design. [RabbitMQ](https://www.rabbitmq.com) is perfect for all of this.
+**Event Bus**:  Event bus is a software architectural pattern which allows the parts of your solution communicate with each other without having to know each other's location or even existence. Instead of directly sending events to its recipient, modules send it to the event bus. Each service just responds to the events it subscribed to. Web services do NOT and should not call each other's API otherwise you are going to get a very messy, tightly coupled design. [RabbitMQ](https://www.rabbitmq.com) is perfect for all of this.
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
 
@@ -470,4 +470,4 @@ Both websites run on ports 5001 and 5002 both of which you can edit from their y
 # Conclusion
 
 This article and the source code were a product of my self study journey. Microservices may seem to get things complicated but it is targeting relatively big and evolving projects. If you don't need it, don't use it. The limited business domain introduced here could be solved by a simple MVC application with a single database. On the other hand, giant companies such as Google, Microsoft and Amazon have all moved their environment into microservice architecture. To use the products of these companies, you don't need to know the architecture itself but it is my personal belief that it is important to learn the basics of any technology you use.
-Along the way, I have studied over 20 different software architecture patterns, took notes and coded them too. Maybe I will write about them some other time. At the end of the day, it was great fun and satisfying. Apologies for any grammar or technical mistakes and thank you for reading!
+Along the way, I have studied over 20 different software architectural patterns, took notes and coded them too. Maybe I will write about them some other time. At the end of the day, it was great fun and satisfying. Apologies for any grammar or technical mistakes and thank you for reading!
