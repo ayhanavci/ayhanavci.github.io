@@ -255,7 +255,7 @@ Figure 11. Producer - Consumer model with Queues, Exchanges and Routing keys
 
 Any application can publish events into any routing key through any exchange. Interested consumers can create their own queues and wait for the messages they have subscribed into. In this example Consumer 1 is interested in Key 1, Consumer 2 is interested in Key 2 and Consumer 3 is interested in both types of events. 
 
-Web Services in the project uses are a more complicated topography. Below is how Event Store communicates with services to record and publish events.
+Below is how Event Store communicates with services to record and publish events.
 
 ![eventbusrouting1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting1.png)
 
