@@ -231,20 +231,22 @@ Figure 10. Customer Database after the story
 * The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ, uses Amqp.
 * These are happening within docker containers so there is also Docker networking involved in all of these communications.
 
-**Event Bus**:  Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location (or even existence). Instead of directly sending events to each other's location, modules send it to the event bus and whoever is interested in the event retrieves it. [RabbitMQ](https://www.rabbitmq.com) is perfect for this.
-
-Thanks to Event Bus architecture, all components are decoupled and they do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API.
+**Event Bus**:  Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location or even existence. Instead of directly sending events to each other's location, modules send it to the event bus and whoever is interested in the event retrieves it.
+Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API otherwise you are going to get a very messy design. [RabbitMQ](https://www.rabbitmq.com) is perfect for all of this.
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
 
 Figure 11. Event Bus
+
 Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, Work Queues and RPCs. It is best to check the [official web site](https://www.rabbitmq.com/getstarted.html) to learn about how these patterns work. But here is an intro:
 
 ![rabbit1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/rabbit1.png)
 
 Figure 11. Producer - Consumer model with Queues, Exchanges and Routing keys
 
-Any application can publish events into any routing key through any exchange. Interested consumers can create their own queues and wait for the messages they have subscribed into. In this example Consumer 1 is interested in Key 1, Consumer 2 is interested in Key 2 and Consumer 3 is interested in both types of events. 
+Any application can publish events into any routing key through any exchange. Interested consumers can create their own queues and wait for the messages they have subscribed into. In this example Consumer 1 is interested in Key 1, Consumer 2 is interested in Key 2 and Consumer 3 is interested in both types of events.
+
+In the source code, I made all the messages persistent. So even if one of the services crashes, the message stays in the event bus and the service is going to retrieve it when it is up and running.
 
 Below is how Event Store communicates with services to record and publish events.
 
