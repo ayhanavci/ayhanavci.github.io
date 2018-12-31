@@ -326,15 +326,15 @@ Representational State Transfer is a software architectural style that defines a
 | Customer (Python) | Order Service(Java)  | Product Service(Python)  | Accounting Service(JS) |
 | ---------------- | -------------- | ---------------- | ------------------ |
 | login-user | place-order | get-products | get-revenue |
-| add-user | get-orders | get-all-products |-|
-| update-user |-| get-product-details |-|
-| get-user |-| add-new-product |-|
-| get-all-users |-| update-product |-|
-| get-credit |-| delete-product |-|
-| set-credit |-| get-categories |-|
-|-|-| add-new-category |-|
-|-|-| update-category |-|
-|-|-| delete-category |-|
+| add-user | get-orders | get-all-products ||
+| update-user || get-product-details ||
+| get-user || add-new-product ||
+| get-all-users || update-product ||
+| get-credit || delete-product ||
+| set-credit || get-categories ||
+||| add-new-category ||
+||| update-category ||
+||| delete-category ||
 
 Table 3. Services and API
 
