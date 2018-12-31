@@ -60,13 +60,9 @@ Microservices divides the solution into business atomic modules, and helps creat
 
 **Domain Driven Design**: Domain Driven Design is an approach to developing software systems, and in particular systems that are complex, that have ever-changing business rules, and that you expect to last for the long term within the enterprise.
 
-## Decomposition and Aggregates
+**Decomposition and Aggregates**: Divide and conquer strategy for domain driven design. You break the domain down into subdomains and define the relationship between them. This helps understanding and defining the parts and the steps of your software solution, and create a stable, modular system. 
 
-Divide and conquer strategy for domain driven design. You break the domain down into subdomains and define the relationship between them. This helps understanding and defining the parts and the steps of your software solution, and create a stable, modular system. 
-
-## Service Discovery / Registration
-
-The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time and they should be accessible. This requires an API gateway in which consumer applications can meet with the services. The services could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
+**Service Discovery / Registration**: The architecture being modular and flexible creates a context that any service could be added to the system from any location at any time and they should be accessible. This requires an API gateway in which consumer applications can meet with the services. The services could be discovered from a central mechanism (Discovery), or each service could send their location information whenever they are up and running (Registration).
 
 ## CQRS
 
@@ -76,29 +72,19 @@ At its core, Command & Query Responsibility Segregation is seperating read and w
 
 Figure 1: CQRS pattern simplified
 
-### Event Sourcing
+**Event Sourcing**: Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
 
-Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
+**Event Store Pattern**: Event store is a type of database system, optimized for storage of events. It has a record focused database and provides API for the services that may want to use the store.
 
-### Event Store Pattern
-
-Event store is a type of database system, optimized for storage of events. It has a record focused database and provides API for the services that may want to use the store.
-
-### Database Per Service
-
-Each service having its own private database helps decoupling them. Each aggregate only needs some part of the data. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service.
+**Database Per Service**: Each service having its own private database helps decoupling them. Each aggregate only needs some part of the data. So it makes sense to create a small part of the full database. CQRS pattern along with an event bus helps us keep the data distributed and relevant to each service.
 
 ## Saga
 
 Business transactions spanning multiple services require a mechanism to ensure data consistency across services. The Saga pattern manages failures, ensures consistency and correctness across microservices. A saga is a sequence of local transactions. Sagas are used as state machines that coordinate components of the whole. There are two types;
 
-### Event Broker Pattern - Choreography
+**Event Broker Pattern - Choreography**: There is no central coordination. Each service produces events when a certain action occurs and knows how to respond to events. So the responsibility of the full transaction is distributed among services. 
 
-There is no central coordination. Each service produces events when a certain action occurs and knows how to respond to events. So the responsibility of the full transaction is distributed among services. 
-
-### Event Mediator Pattern - Orchestration / Controller / Processor
-
-There is a central service responsible solely for coordination of other services and the workflow.
+**Event Mediator Pattern - Orchestration / Controller / Processor**: There is a central service responsible solely for coordination of other services and the workflow.
 
 # The Software
 
@@ -243,9 +229,7 @@ Figure 10. Customer Database after the story
 * The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ, uses Amqp.
 * These are happening within docker containers so there is also Docker networking involved in all of these communications.
 
-### Event Bus
-
-Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, Work Queues and RPCs. It is best to check the [official web site](https://www.rabbitmq.com/getstarted.html) to learn about how these patterns work. But here is an intro:
+**Event Bus**: Rabbit MQ supports several software patterns such as Publish/Subscribe, Topic, Work Queues and RPCs. It is best to check the [official web site](https://www.rabbitmq.com/getstarted.html) to learn about how these patterns work. But here is an intro:
 
 ![rabbit1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/rabbit1.png)
 
@@ -310,9 +294,7 @@ I encapsulated all modules in Linux dockers except for the android application. 
 
 In most of the cases I used shell scripts to automate building the source code & executing the binaries. Most of them are named ```run.sh``` and some of them are ```build.sh```. Each module should be up and ready simply by calling ```docker-compose up``` from terminal on root folder of the module. The only exception is CouchDB which requires creating the user database explicitly.
 
-### Networks
-
-I have created more than necessary amount of docker networks just to demonstrate how granular and flexible the networking can be done. For instance, Order service and Order database have their own private network so that nothing outside can access the Order database.
+**Networks**: I have created more than necessary amount of docker networks just to demonstrate how granular and flexible the networking can be done. For instance, Order service and Order database have their own private network so that nothing outside can access the Order database.
 
 Here is a list of docker networks on my machine. A good amount of them are used for this project.
 ![networkslist]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/networkslist.png)
@@ -340,9 +322,7 @@ Table 3. Services and API
 
 These provide the system ability to communicate.
 
-### Event Bus 
-
-Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location (or even existence). Instead of directly sending events to each other's location, modules send it to the event bus and whoever is interested in the event retrieves it. [RabbitMQ](https://www.rabbitmq.com) is perfect for this.
+**Event Bus**: Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location (or even existence). Instead of directly sending events to each other's location, modules send it to the event bus and whoever is interested in the event retrieves it. [RabbitMQ](https://www.rabbitmq.com) is perfect for this.
 
 All components are decoupled and they do not know the location of other services. They are not even aware of their existence. Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API.
 
@@ -350,18 +330,14 @@ All components are decoupled and they do not know the location of other services
 
 Figure 11. Event Bus
 
-### Event Store Implementation
-
-C# .NET Core application that does the following;
+**Event Store Implementation**: C# .NET Core application that does the following;
 
 1. Receives write requests from services
 2. Stores the request
 3. Sends write success to the requesting service
 4. Publishes the change
 
-### Reverse Proxy
-
-I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. Reverse proxy seemed like a good enough replacement.
+**Reverse Proxy**: I wouldn't use any premade service discovery or registry solutions. One could be implemented from scratch but I just wasn't interested. Reverse proxy seemed like a good enough replacement.
 The reverse proxy acts as an API gateway. I have dockerized and configured a Nginx server and placed it inside the docker network. It detects the requests redirects it to the related docker container. The interesting part here is that even the Reverse Proxy itself doesn't know actual locations of the services. They could be configured to be anywhere with technologies like Docker Swarm or Kubernetes.
 
 ```
@@ -449,20 +425,14 @@ networks:
 
 The consumers are any number of clients who use the webservices for whatever logic. Three of them are implemented but more can be added. 
 
-### ECommerce Website
+**ECommerce Website**: Developed using Python + Flask. Containerized. Using this website, users can Register, Login, Logout, View Categories, View Products, Order Products, View and update their profile, view their order history and order status.
 
-Developed using Python + Flask. Containerized. Using this website, users can Register, Login, Logout, View Categories, View Products, Order Products, View and update their profile, view their order history and order status.
-
-### ECommerce Native Android App
-
-Developed as a native Android apk using Java. The purpose is the same as ECommerce website but with few options missing (you can't update user details or view categories)
+**ECommerce Native Android App**: Developed as a native Android apk using Java. The purpose is the same as ECommerce website but with few options missing (you can't update user details or view categories)
 
 ![android1]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/android1.png){:height="320px" width="170px"}
 ![android2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/android2.png){:height="320px" width="170px"}
 
-### Management Website
-
-Developed using Python + Flask. Containerized. Product admins can Login, Add/Update/Delete Categories and Products, Edit customer credits, View all Orders history and their status.
+**Management Website**: Developed using Python + Flask. Containerized. Product admins can Login, Add/Update/Delete Categories and Products, Edit customer credits, View all Orders history and their status.
 
 ## Running the Project
 
@@ -485,12 +455,11 @@ Figure 12. All dockers running on terminal
 
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server.
 
-## Source Code
+# Source Code
 
 [https://github.com/ayhanavci/Microservices](https://github.com/ayhanavci/Microservices){:height="175px" width="333px"}
 
 ```git pull https://github.com/ayhanavci/Microservices.git```
-
 
 # Conclusion
 
