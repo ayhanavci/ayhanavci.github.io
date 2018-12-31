@@ -136,7 +136,7 @@ Features:
 
 Table 1. User Stories
 
-## The Design
+## Topography
 
 Modules are scalable. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. Modules are distributed. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network. 
 
