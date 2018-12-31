@@ -231,7 +231,7 @@ Figure 10. Customer Database after the story
 * The services also communicate with each other through an Event Bus. The Event Bus I used is RabbitMQ, uses Amqp.
 * These are happening within docker containers so there is also Docker networking involved in all of these communications.
 
-**Event Bus**:  Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location or even existence. Instead of directly sending events to each other's location, modules send it to the event bus and whoever is interested in the event retrieves it.
+**Event Bus**:  Event bus is a software architecture pattern which allows the parts of your solution communicate with each other without having to know each other's location or even existence. Instead of directly sending events to its recipient, modules send it to the event bus and whoever is interested in the event retrieves it.
 Each service just responds to the events it receives and never directly contacts other services. Web services do NOT and should not call each other's API otherwise you are going to get a very messy design. [RabbitMQ](https://www.rabbitmq.com) is perfect for all of this.
 
 ![eventbus]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbus.png)
