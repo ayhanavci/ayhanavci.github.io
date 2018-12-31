@@ -245,6 +245,8 @@ Below is how Event Store communicates with services to record and publish events
 
 Figure 12. Event Store communication with Services over Event Bus
 
+First one is when services POST api are called so each service decides to record the data on the Event Store. The following three are the responses. And the last one is event broadcast on the Event Bus.
+
 And below is how communication for Order Saga occurs. Notice that queues and Exchange names are re-used but routing keys are not. 
 
 ![eventbusrouting2]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/eventbusrouting2.png)
