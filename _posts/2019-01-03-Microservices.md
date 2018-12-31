@@ -323,45 +323,20 @@ Here is a list of docker networks on my machine. A good amount of them are used 
 
 Representational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. In my implementation, web services provide GET and POST methods only accepting and producing Json data.
 
-### Customer Service
+| Customer (Python) | Order Service(Java)  | Product Service(Python)  | Accounting Service(JS) |
+| ---------------- | -------------- | ---------------- | ------------------ |
+| login-user | place-order | get-products | get-revenue |
+| add-user | get-orders | get-all-products |-|
+| update-user |-| get-product-details |-|
+| get-user |-| add-new-product |-|
+| get-all-users |-| update-product |-|
+| get-credit |-| delete-product |-|
+| set-credit |-| get-categories |-|
+|-|-| add-new-category |-|
+|-|-| update-category |-|
+|-|-| delete-category |-|
 
-Python, Flask service. Provides the following Rest API
-
-* login-user
-* add-user
-* update-user
-* get-user
-* get-all-users
-* get-credit
-* set-credit
-
-### Order Service
-
-Java - Jersey service. Provides the following Rest API
-
-* place-order
-* get-orders
-
-### Product Service
-
-Python, Flask service. Provides the following Rest API
-
-* get-products
-* get-all-products
-* get-product-details
-* add-new-product
-* update-product
-* delete-product
-* get-categories
-* add-new-category
-* update-category
-* delete-category
-
-### Accounting Service
-
-Javascript - NodeJS service. Provides the following Rest API. (can add get-invoice)
-
-* get-revenue
+Table 3. Services and API
 
 ## Tools
 
