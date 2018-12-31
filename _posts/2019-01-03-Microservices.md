@@ -223,6 +223,7 @@ Figure 9. Order Database after the story
 Customer database on Redis.
 
 ![customerlocaldb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/customerlocaldb.png)
+
 Figure 10. Customer Database after the story
 
 ## Communication Model
