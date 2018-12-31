@@ -122,14 +122,14 @@ Table 1. User Stories
 
 ## Topology
 
-Modules are scalable. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. Modules are distributed. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network. 
+Modules are scalable and distributed. The design allows decoupled integration of any number of modules developed in any language and deployed anywhere. A new service only needs to be able to access the Event Bus. You can pick the modules and deploy them anywhere as long as it is accessible to Docker network. 
 
 ![allsystem]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/allsystem.png)
 Figure 2. Communication Topology
 
 ## Modules
 
-I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I used others too, just for the sake of having a variety. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment
+I used Python with Flask often because it is arguably one of the fastest and cleanest ways to prototype anything. I used others just for the sake of having a variety. For Event Store, I used two docker containers. SDK to build for Linux, Runtime for deployment
 
 | Module | Category  | Programming Language | Sdk | Docker |
 | ------ | --------- | -------------------- | -------- | ------ |
@@ -160,7 +160,7 @@ In microservices, it is important to be flexible and dynamic. These are the desi
 
 * Any module can use whatever database it wants.
 
-* There is a single Event Store, modules send write requests to this event store through Event Bus. So they don't need to know how, when and where the data is written.
+* There is a single Event Store (can be clustered). Modules send write requests there through Event Bus. They don't need to know how, when and where the data is written.
 
 * All modules are dockerized with Dockerfile and Docker Compose file provided. So they can be run on any host machine without having to know anything about it.
 
