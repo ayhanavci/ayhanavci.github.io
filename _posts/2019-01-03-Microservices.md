@@ -35,13 +35,13 @@ tags:
 
 # Introduction
 
-I have been exploring software architectural patterns and I've spent some time on microservices. It has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper, I kept on writing some small pieces of code along with my notes. Eventually I have decided to turn it into a working software. And here we are.
+I have been exploring software architectural patterns and I've spent some time on microservices. It has been a hot topic for the past couple of years. I took some notes while researching and wrote some pseudo code. As I went deeper, I kept on writing some small pieces of code along with my notes. Eventually I have decided to turn it into a working software. And here we are. This article and the software attached to it are the products of my self study journey.
 
 # Goals
 
 * Design and implement common Microservice concepts. Implementation should be a fully functional.
 
-* Lean, proof of concept grade source code as opposed to production grade.
+* Lean, proof of concept grade source code. Not production grade.
 
 * Keep the business model simple. This is about the technology, not the business domain.
 
