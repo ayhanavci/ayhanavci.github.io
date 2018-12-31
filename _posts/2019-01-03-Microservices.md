@@ -512,13 +512,14 @@ Figure 12. All dockers running on terminal
 
 Both websites run on ports 5001 and 5002 both of which you can edit from their yml files. On Android project, you need to open the settings (upper right corner) inside the app and change the IP / Host of the reverse proxy server.
 
-## Conclusion
-
-This article and the source code were a product of my self study journey. Microservices may seem to get things complicated but it is targeting relatively big and evolving projects. If you don't need it, don't use it. The limited business domain introduced here could be solved by a simple MVC application with a single database. On the other hand, giant companies such as Google, Microsoft and Amazon have all moved their environment into microservice architecture. To use the products of these companies, you don't need to know the architecture itself but it is my personal belief that it is important to learn the basics of any technology you use.
-Along the way, I have studied over 20 different software architecture patterns, took notes and coded them too. Maybe I will write about them some other time. At the end of the day, it was great fun and satisfying. Apologies for any grammar or technical mistakes and thank you for reading!
-
 ## Source Code
 
 [https://github.com/ayhanavci/Microservices](https://github.com/ayhanavci/Microservices){:height="175px" width="333px"}
 
 ```git pull https://github.com/ayhanavci/Microservices.git```
+
+
+# Conclusion
+
+This article and the source code were a product of my self study journey. Microservices may seem to get things complicated but it is targeting relatively big and evolving projects. If you don't need it, don't use it. The limited business domain introduced here could be solved by a simple MVC application with a single database. On the other hand, giant companies such as Google, Microsoft and Amazon have all moved their environment into microservice architecture. To use the products of these companies, you don't need to know the architecture itself but it is my personal belief that it is important to learn the basics of any technology you use.
+Along the way, I have studied over 20 different software architecture patterns, took notes and coded them too. Maybe I will write about them some other time. At the end of the day, it was great fun and satisfying. Apologies for any grammar or technical mistakes and thank you for reading!
