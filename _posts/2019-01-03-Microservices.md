@@ -70,7 +70,7 @@ At its core, Command & Query Responsibility Segregation is seperating read and w
 
 ![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrs.png)
 
-Figure 1: CQRS pattern simplified
+Figure 1. CQRS pattern simplified
 
 **Event Sourcing**: Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
 
