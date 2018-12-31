@@ -275,6 +275,7 @@ Prelude:
 The Order choreography:
 
 ![Order Saga]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/ordersaga.png)
+
 Figure 15: Order Saga Sequence Diagram
 
 I have excluded some of the rollback transactions. The only checks here are if the product is in store and if the user has enough credits to buy it.
