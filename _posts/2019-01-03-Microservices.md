@@ -186,6 +186,8 @@ The key here is that everything worth recording must be first recorded on the Ev
 ![cqrssequence]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrssequence.png)
 Figure 4. CQRS in action
 
+**How Data Looks Like**: To demonstrate how data is stored on each database, consider the following scenario;
+
 1. Product Manager logs in, __Adds__ a new product.
 2. Product Manager decides he made a mistake in parameters, __Updates__ the product he just created
 3. A Customer opens the app on his smart phone, takes a look at the products and decides to __Order__ the product that was previously recorded.
