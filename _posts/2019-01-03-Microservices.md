@@ -55,8 +55,7 @@ I have been exploring software architectural patterns and I've spent some time o
 
 # Microservices Architecture
 
-Microservice architecture is a software architectural style focusing on building single function modules with well defined interfaces and operations.
-Microservices divides the solution into business atomic modules, and helps create a flexible and scalable product. In microservices, the modules of the end product are distinct and loosely coupled / decoupled.
+Microservice architecture focuses on building single function modules with well defined interfaces and operations. Microservices divides the solution into atomic business modules, and helps create a flexible and scalable product. In microservices, the modules of the end product are distinct and loosely coupled / decoupled.
 
 **Domain Driven Design**: Domain Driven Design is an approach to developing software systems, and in particular systems that are complex, that have ever-changing business rules, and that you expect to last for the long term within the enterprise.
 
