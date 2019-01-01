@@ -5,7 +5,7 @@ excerpt: "School grading Python web application using Django. Source code, code 
 description: "School grading web application using Django"
 date: "2018-07-28"
 header:
-    og_image: /assets/images/simplicity3.png    
+    og_image: /assets/images/simplicity1.png    
 categories:
   - Projects
 tags:

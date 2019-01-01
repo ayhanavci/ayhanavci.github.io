@@ -4,7 +4,7 @@ excerpt_separator: "<!--more-->"
 excerpt: "Lightweight WebRTC Video softphone demonstration with standard libraries. Source code and documentation included."
 description: "A Video Enabled Softphone using Web RTC "
 header:
-    og_image: /assets/images/simplicity3.png
+    og_image: /assets/images/simplicity1.png
 categories:
   - Projects
   - Tutorials

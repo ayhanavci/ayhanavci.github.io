@@ -4,7 +4,7 @@ excerpt_separator: "<!--more-->"
 excerpt: "Gang of Four Design Patterns With World of Warcraft Examples"
 description: "Gang of Four Design Patterns With World of Warcraft Examples"
 header:
-    og_image: /assets/images/simplicity3.png
+    og_image: /assets/images/simplicity1.png
 categories:
   - Concepts
 tags:

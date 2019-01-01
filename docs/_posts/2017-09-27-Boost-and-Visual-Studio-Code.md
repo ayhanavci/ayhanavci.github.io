@@ -6,7 +6,7 @@ description: "Setting up Visual Studio Code for Boost library"
 categories:
   - Tutorials
 header:
-    og_image: /assets/images/simplicity3.png
+    og_image: /assets/images/simplicity1.png
 tags:
   - C++
   - Boost

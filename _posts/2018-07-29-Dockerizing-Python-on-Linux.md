@@ -5,7 +5,7 @@ description: "Dockerizing Python project on a Posix host (by Ayhan Avcı)"
 date: "2018-07-29"
 excerpt: "Dockerizing Python web project on a Posix host. Source and how-to included with a brief information on concepts."
 header:
-    og_image: /assets/images/simplicity3.png
+    og_image: /assets/images/simplicity1.png
 categories:
   - Projects
 tags:

@@ -4,7 +4,7 @@ excerpt_separator: "<!--more-->"
 excerpt: "An Itea concept demonstration for ECall I completed back in 2013.  Connecting a car ECU with Arduino and sending information via Android device to 112."
 description: "Interfacing Car Engine with Android via Arduino"
 header:
-    og_image: /assets/images/simplicity3.png
+    og_image: /assets/images/simplicity1.png
 categories:
   - Projects
 tags:
