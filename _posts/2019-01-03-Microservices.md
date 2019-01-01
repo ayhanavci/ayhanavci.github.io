@@ -9,7 +9,7 @@ header:
 categories:
   - Projects
 tags:
-  - Software Architecturual Patterns
+  - Software Architectural Patterns
   - C Sharp
   - Node.js
   - Python
