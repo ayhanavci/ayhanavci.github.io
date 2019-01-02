@@ -28,7 +28,7 @@ C#, Javascript, .NET, MVC, Devexpress, Xml, MSSQL Server
 
 ## E-Invoice, E-Archive Portal
 
-Accounting platform with e-invoice, e-archive, e-book integrated with e-State (e-Devlet).
+Accounting platform with e-invoice, e-archive, e-book integrated with e-State.
 
 Features:
 
