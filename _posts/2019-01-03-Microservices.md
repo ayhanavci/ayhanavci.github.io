@@ -65,13 +65,13 @@ Microservice architecture focuses on building single function modules with well 
 
 ## CQRS
 
-At its core, Command & Query Responsibility Segregation is seperating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. In practice, this approach seperates read and write databases. Event Sourcing usually goes together with CQRS pattern.
+At its core, Command & Query Responsibility Segregation is separating read and write operations. The idea is that recording a data should have no side effect on how you read it and vice versa. In practice, this approach separates read and write databases. Event Sourcing usually goes together with CQRS pattern.
 
 ![classicdb]({{ site.url }}{{ site.baseurl }}/assets/images/microservices/cqrs.png)
 
 Figure 1. CQRS pattern simplified
 
-**Event Sourcing**: Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance.
+**Event Sourcing**: Event sourcing is a way of persisting your application's state by storing the history that determines the current state of your application. You record everything that has occured in a stack fashion. This allows easy rollback transactions and data audit. Recording the data becomes very simple and high performance. Microsoft has a great [ebook here](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
 
 **Event Store Pattern**: Event store is a type of database system, optimized for storage of events. It has a record focused database and provides API for the services that may want to use the store.
 
@@ -263,7 +263,7 @@ Figure 14. Event Saga communication between Services over Event Bus
 
 ## Order Saga
 
-This is the one and only saga that spans over all services. Everything begins when a customer likes a product and places an order. To keep messages simple, he can place 1 product at a time so there is no shopping chart.
+This is the one and only saga that spans over all services. Everything begins when a customer likes a product and places an order. To keep messages simple, he can place one product at a time so there is no shopping chart.
 
 Prelude:
 
