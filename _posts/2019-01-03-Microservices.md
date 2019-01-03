@@ -174,7 +174,7 @@ Figure 3. Aggregates Diagram
 
 ## The Data Model
 
-* Event Store Database: MongoDB. Keeps Json data. Never updates or deletes. Just appends.
+* Event Store Database: MongoDB. Keeps Json data. Never updates or deletes. Just appends (insert).
 * Customer Database: Redis. Keeps key-value pairs. Key is username, value is user data.
 * Product Database: SQLite. Category - Product relational model. Since this is an SQLite database, it has limitations on scaling.
 * Order Database: PostgreSQL. Records Orders and states.
