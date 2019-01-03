@@ -452,7 +452,7 @@ All modules are prepared for Docker Compose. The classic option is running compo
 1. Open a terminal. Change directory to the module
 2. Type ```docker-compose up```
 
-You need to run the database dockers first, event bus and event store next, web services websites and the reverse proxy last. That's it. Everything should install inside its own container and run in there. Aside from Docker itself, you don't need to explicitly install anything else.
+You need to run the database dockers first, event bus and event store next, web services, websites and the reverse proxy last. That's it. Everything should install inside its own container and run in there. Aside from Docker itself, you don't need to explicitly install anything else.
 
 Only couchDB requires the following command after it starts:
 
