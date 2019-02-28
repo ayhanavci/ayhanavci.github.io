@@ -72,10 +72,10 @@ Here is an example:
 
 ```Java
   ArrayList<Uri> photo_files = new ArrayList<>();
-  ...
+  //..
   //You can fill photo_files with uri list to previously saved images. This is passed on "newInstance". 
   //Below, same variable is also used to get submitted photos, which obviously you don't need to.
-  ...  
+  //..
   MultiplePhotoTakerFragment multiplePhotoTakerFragment = MultiplePhotoTakerFragment.newInstance(photo_files);
   multiplePhotoTakerFragment.setUserActionEventsListener(new MultiplePhotoTakerFragment.IUserActionEvents() {
     @Override
