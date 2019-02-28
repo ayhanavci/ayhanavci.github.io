@@ -104,7 +104,7 @@ Here is an example:
 ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/2.png){:height="300px"}
 
 3. Back to fragment screen. One photo taken
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="300px"}
+![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="100px"}
 
 4. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
 
