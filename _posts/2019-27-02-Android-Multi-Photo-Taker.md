@@ -70,7 +70,7 @@ The images used in layout file are stock Android vectors. I didn't add them here
 
 Here is an example:
 
-```java
+{% highlight java %}
   ArrayList<Uri> photo_files = new ArrayList<>();
   //..
   //You can fill photo_files with uri list to previously saved images. This is passed on "newInstance". 
@@ -93,7 +93,7 @@ Here is an example:
   ft.replace(R.id.content_frame, multiplePhotoTakerFragment);
   ft.addToBackStack(null);
   ft.commit();
-```
+{% endhighlight %}
 
 ## Screenshots
 
