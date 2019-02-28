@@ -101,15 +101,15 @@ Here is an example:
 
 ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/1.png){:height="480px" width="256px"}
 
-2. User clicks the photo+ icon. Camera intent starts, user takes a photo
+1. User clicks the photo+ icon. Camera intent starts, user takes a photo
 
 ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/2.png){:height="480px" width="256px"}
 
-3. Back to fragment screen. One photo taken
+1. Back to fragment screen. One photo taken
 
 ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="480px" width="256px"}
 
-4. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
+1. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
 
 * User can click the red trash icon on top right to delete the previewed photo.
 * Scroll left and right on the nested scroll with the small previews.
