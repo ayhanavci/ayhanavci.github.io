@@ -31,12 +31,12 @@ This is an Android fragment that adds a custom, mini gallery feature into your p
 * On Submit & Cancel, sends events to parent with photo uri list.
 * On start, can load saved photos into previews using a uri list.
 * No external dependencies, just native android sdk.
-* Can simply be copy-pasted in any project.
-* The preview image buttons are added dynamically and as it is, there is no limit to it. (You may want to edit the Java code to limit button creation according to your needs)
+* Can simply be copy-pasted into any project.
+* The preview image buttons are added dynamically. And as it is, there is no limit to it. (You may want to edit the Java code to limit button creation according to your needs)
 
 ## Usage
 
-The images used in layout file are stock Android vectors. I didn't add them here since it would be pointless. You may just use whatever icons you have.
+The images used in layout file are stock Android vectors. I didn't add them here since it would be pointless. You may just use whatever icons you like.
 
 1. Add the layout & java files in your project. ([MultiplePhotoTakerFragment.java](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/MultiplePhotoTakerFragment.java) & [multiple_photo_taker_fragment.xml](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/multiple_photo_taker_fragment.xml))
 
