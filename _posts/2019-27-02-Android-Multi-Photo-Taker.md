@@ -162,6 +162,7 @@ HashMap<ImageButton, Uri>  button_uri_pair = new HashMap<>();
 LinearLayout layout_photo_buttons;
 {% endhighlight %}
 
+In layout:
 {% highlight xml %}
 <HorizontalScrollView
   android:id="@+id/photo_buttons_scroll_view"
@@ -176,6 +177,50 @@ LinearLayout layout_photo_buttons;
     android:orientation="horizontal" >
   </LinearLayout>
 </HorizontalScrollView>
+{% endhighlight %}
+
+And usage in code:
+{% highlight java %}
+ImageButton createNewPhotoButton() {
+        ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.MarginLayoutParams.MATCH_PARENT, ViewGroup.MarginLayoutParams.MATCH_PARENT);
+        layoutParams.leftMargin = 10;
+        ImageButton new_button = new ImageButton(getContext());
+        new_button.setImageResource(R.drawable.ic_add_photo);
+        new_button.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        new_button.setAdjustViewBounds(true);
+        new_button.setLayoutParams(layoutParams);
+        new_button.setOnClickListener(v -> onClickTakePhoto(v));
+        new_button.setBackgroundColor(Color.TRANSPARENT);
+        new_button.setId(button_uri_pair.size() + 100);
+
+        layout_photo_buttons.addView(new_button);
+
+        return new_button;
+    }
+{% endhighlight %}
+
+{% highlight java %}
+ private void onClickDeletePhoto(View v) {
+        if (selected_uri != null) {
+            for (Map.Entry<ImageButton, Uri> entry : button_uri_pair.entrySet()) {
+                ImageButton key = entry.getKey();
+                Uri value = entry.getValue();
+                if (value == selected_uri) {
+                    selected_uri = null;
+                    button_uri_pair.remove(key);
+                    layout_photo_buttons.removeView(key);
+                    btn_delete_item.setVisibility(View.GONE);
+                    img_photo_preview.setImageResource(R.drawable.ic_preview_photo);
+                    if (getActivity() != null) {
+                        ContentResolver content_resolver = getActivity().getContentResolver();
+                        content_resolver.delete(value, null, null);
+                    }
+
+                    break;
+                }
+            }
+        }
+    }
 {% endhighlight %}
 
 ## License
