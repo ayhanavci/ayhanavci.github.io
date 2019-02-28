@@ -119,7 +119,7 @@ Here is an example:
 
 * User can click the red trash icon on top right to delete the previewed photo.
 * Scroll left and right on the nested scroll with the small previews.
-* Scroll an click on any of the small previews to load it on the large preview.
+* Scroll and click on any of the small previews to load it on the large preview.
 * Take more photos using camera+ icon.
 * Click submit to send file list to onSubmit event or can cancel.
 
