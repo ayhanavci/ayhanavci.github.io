@@ -38,11 +38,13 @@ This is an Android fragment that adds a custom, mini gallery feature into your p
 
 The images used in layout file are stock Android vectors. I didn't add them here since it would be pointless. You may just use whatever icons you have.
 
-* Add the layout & java files in your project. ([MultiplePhotoTakerFragment.java](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/MultiplePhotoTakerFragment.java) & [multiple_photo_taker_fragment.xml](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/multiple_photo_taker_fragment.xml))
-* Add your own package name on top of the java file.
-* Edit your AndroidManifest.xml for Camera & Storage permissions. Don't forget to add a FileProvider too. Check Android documentation on it. But it looks something like below.
+1. Add the layout & java files in your project. ([MultiplePhotoTakerFragment.java](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/MultiplePhotoTakerFragment.java) & [multiple_photo_taker_fragment.xml](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/multiple_photo_taker_fragment.xml))
 
-```xml
+2. Add your own package name on top of the java file.
+
+3. Edit your AndroidManifest.xml for Camera & Storage permissions. Don't forget to add a FileProvider too. Check Android documentation on it. But it looks something like below.
+
+{% highlight xml %}
   <manifest
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -64,9 +66,10 @@ The images used in layout file are stock Android vectors. I didn't add them here
     </application>
   ...
   ...
-```
+{% endhighlight %}
 
-* Load the fragment.
+{:start="4"}
+4. Load the fragment.
 
 Here is an example:
 
@@ -99,17 +102,20 @@ Here is an example:
 
 1. Fragment starts
 
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/1.png){:height="480px" width="256px"}
+  ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/1.png){:height="480px" width="256px"}
 
-1. User clicks the photo+ icon. Camera intent starts, user takes a photo
+{:start="2"}
+2. User clicks the photo+ icon. Camera intent starts, user takes a photo
+  
+  ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/2.png){:height="480px" width="256px"}
 
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/2.png){:height="480px" width="256px"}
+{:start="3"}
+3. Back to fragment screen. One photo taken
 
-1. Back to fragment screen. One photo taken
+  ![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="480px" width="256px"}
 
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="480px" width="256px"}
-
-1. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
+{:start="4"}
+4. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
 
 * User can click the red trash icon on top right to delete the previewed photo.
 * Scroll left and right on the nested scroll with the small previews.
