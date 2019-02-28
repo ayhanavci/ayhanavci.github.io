@@ -128,7 +128,7 @@ Here is an example:
 
 | Function | What it does  |
 | ---------- | -------------------- |
-| setUserActionEventsListener | The calling activity sets its event handler IUserActionEvents  |
+| {% highlight java %}setUserActionEventsListener{% endhighlight %} | The calling activity sets its event handler IUserActionEvents  |
 | setUserActionEventsListener | The calling activity sets its event handler IUserActionEvents  |
 | onCreateView | Framework override. Sets up button event handlers and loads photos (if any) into previews  |
 | onRequestPermissionsResult | Framework override. Only called on first start, called after user allows camera usage. |
