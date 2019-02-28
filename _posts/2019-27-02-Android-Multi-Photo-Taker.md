@@ -152,18 +152,17 @@ Two member variables are important
 
 * This one maps the small preview buttons to their respective image files. 
 
-```Java
+{% highlight java %}
 HashMap<ImageButton, Uri>  button_uri_pair = new HashMap<>();
-```
+{% endhighlight %}
 
 * This one is a horizontal layout inside a scroll view. Small preview buttons are added here.
 
-```Java
+{% highlight java %}
 LinearLayout layout_photo_buttons;
-```
+{% endhighlight %}
 
-
-```xml
+{% highlight xml %}
 <HorizontalScrollView
   android:id="@+id/photo_buttons_scroll_view"
   android:background="@android:color/holo_blue_dark"
@@ -177,7 +176,7 @@ LinearLayout layout_photo_buttons;
     android:orientation="horizontal" >
   </LinearLayout>
 </HorizontalScrollView>
-```
+{% endhighlight %}
 
 ## Licence
 
