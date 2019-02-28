@@ -19,11 +19,11 @@ tags:
 
 ## Introduction
 
-This is an Android fragment that adds a custom, mini gallery feature in your project. The source code is provided and sufficiently lean. The modification of the code and the integration to your project can be done easily.
+This is an Android fragment that adds a custom, mini gallery feature into your project. The source code is provided and sufficiently lean. The modification of the code and the integration to your project can be done easily.
 
 ## Features
 
-* Takes photos one by one with a + button.
+* Takes photos one by one.
 * Auto saves photos in full resolution into disk with unique ids.
 * Resamples taken image bitmaps into lower quality bitmaps to reduce memory consumption and preview them all in one screen.
 * User can scroll through previews and select any one of them for a larger preview.
@@ -38,11 +38,9 @@ This is an Android fragment that adds a custom, mini gallery feature in your pro
 
 The images used in layout file are stock Android vectors. I didn't add them here since it would be pointless. You may just use whatever icons you have.
 
-1. Add the layout & java files in your project. ([MultiplePhotoTakerFragment.java](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/MultiplePhotoTakerFragment.java) & [multiple_photo_taker_fragment.xml](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/multiple_photo_taker_fragment.xml))
-2. Add your own package name on top of the java file.
-3. Edit your AndroidManifest.xml for Camera & Storage permissions. Don't forget to add a FileProvider too. Check Android documentation on it.
-
-But it looks something like below.
+* Add the layout & java files in your project. ([MultiplePhotoTakerFragment.java](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/MultiplePhotoTakerFragment.java) & [multiple_photo_taker_fragment.xml](https://github.com/ayhanavci/Android-MultiPhotoTaker/blob/master/multiple_photo_taker_fragment.xml))
+* Add your own package name on top of the java file.
+* Edit your AndroidManifest.xml for Camera & Storage permissions. Don't forget to add a FileProvider too. Check Android documentation on it. But it looks something like below.
 
 ```xml
   <manifest
@@ -68,7 +66,9 @@ But it looks something like below.
   ...
 ```
 
-4. Load the fragment. Here is an example:
+* Load the fragment.
+
+Here is an example:
 
 ```Java
   ArrayList<Uri> photo_files = new ArrayList<>();
