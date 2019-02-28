@@ -178,11 +178,9 @@ LinearLayout layout_photo_buttons;
 </HorizontalScrollView>
 {% endhighlight %}
 
-## Licence
+## License
 
-Feel free to customise according to your needs.
-
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](https://opensource.org/licenses/MIT) Licensed. Feel free to use and customise according to your needs.
 
 # Source Code
 
