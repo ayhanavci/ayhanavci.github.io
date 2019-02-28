@@ -1,7 +1,7 @@
 ---
 title: "Android Multiple Photo Taker"
 excerpt_separator: "<!--more-->"
-description: "Android source code to add gallery feature to your project. (by Ayhan Avcı)"
+description: "Android source code to add gallery feature into your project. (by Ayhan Avcı)"
 date: "2019-02-28"
 excerpt: "A native Android fragment that adds a custom gallery feature into your project. It can add, save, delete, preview, navigate photos and sends the file uri list to the caller."
 header:
