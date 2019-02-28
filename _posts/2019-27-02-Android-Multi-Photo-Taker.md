@@ -98,13 +98,13 @@ Here is an example:
 ## Screenshots
 
 1. Fragment starts
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/1.png){:height="300px"}
+![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/1.png){:height="480px" width="256px"}
 
 2. User clicks the photo+ icon. Camera intent starts, user takes a photo
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/2.png){:height="300px"}
+![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/2.png){:height="480px" width="256px"}
 
 3. Back to fragment screen. One photo taken
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="100px"}
+![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/3.png){:height="480px" width="256px"}
 
 4. User keeps taking photos. The buttons are dynamic and there is no hard limit to it. (The limit is the memory!)
 
@@ -113,7 +113,7 @@ Here is an example:
 * Take more photos using camera+ icon.
 * Click submit to send file list to onSubmit event or can cancel.
 
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/4.png){:height="300px"}
+![1]({{ site.url }}{{ site.baseurl }}/assets/images/phototaker/4.png){:height="480px" width="256px"}
 
 ## MultiplePhotoTakerFragment Class
 
