@@ -70,7 +70,7 @@ The images used in layout file are stock Android vectors. I didn't add them here
 
 Here is an example:
 
-```Java
+```java
   ArrayList<Uri> photo_files = new ArrayList<>();
   //..
   //You can fill photo_files with uri list to previously saved images. This is passed on "newInstance". 
@@ -144,11 +144,18 @@ Here is an example:
 
 Two member variables are important
 
-* ```Java HashMap<ImageButton, Uri>  button_uri_pair = new HashMap<>();```
-This one maps the small preview buttons to their respective image files.
+* This one maps the small preview buttons to their respective image files. 
 
-* ```Java LinearLayout layout_photo_buttons;```
-This one is a horizontal layout inside a scroll view. Small preview buttons are added here.
+```Java
+HashMap<ImageButton, Uri>  button_uri_pair = new HashMap<>();
+```
+
+* This one is a horizontal layout inside a scroll view. Small preview buttons are added here.
+
+```Java
+LinearLayout layout_photo_buttons;
+```
+
 
 ```xml
 <HorizontalScrollView
