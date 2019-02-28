@@ -7,7 +7,7 @@ excerpt: "A native Android fragment that adds a custom gallery feature into your
 header:
     og_image: /assets/images/simplicity1.png
 categories:
-  - Projects
+  - Library
 tags:
   - Android
   - Java
