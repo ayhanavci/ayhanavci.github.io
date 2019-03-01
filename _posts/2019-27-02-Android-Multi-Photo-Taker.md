@@ -29,7 +29,7 @@ This is an Android fragment that adds a custom, mini gallery feature into your p
 * User can scroll through previews and select any one of them for a larger preview.
 * Can delete saved photos. Deleted photos are removed from disk, large & small previews.
 * On Submit & Cancel, sends events to parent with photo URI list.
-* On start, can load saved photos into previews using a URI list.
+* On start, can load saved photos into previews using URI list.
 * No external dependencies, just native android sdk.
 * Can simply be copy-pasted into any project.
 * The preview image buttons are added dynamically. And as it is, there is no limit to it. (You may want to edit the Java code to limit button creation according to your needs)
@@ -132,7 +132,7 @@ Here is an example:
 | setUserActionEventsListener | The calling activity sets its event handler IUserActionEvents  |
 | onCreateView | Framework override. Sets up button event handlers and loads photos (if any) into previews  |
 | onRequestPermissionsResult | Framework override. Only called on first start, called after user allows camera usage. |
-| loadSavedButtons | If parent activity passed a URI list, load them into previews. |
+| loadSavedButtons | If parent activity passed URI list, load them into previews. |
 | onClickCancel | User clicked Cancel. Notify the parent and press back |
 | onClickSubmit | User clicked Submit. Notify the parent with taken photo URI list and press back |
 | onClickDeletePhoto | User clicked red trash icon. Delete the photo and update variables & UI |
