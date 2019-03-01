@@ -145,7 +145,7 @@ Here is an example:
 | onClickLoadPreview | User clicked one of the preview buttons. It is displayed on large preview |
 | requestCameraPermission |  Only called on the very first start. Asks user if usage of camera is allowed |
 | checkCameraPermission | Called each time app is started to check if the app has camera permissions. |
-| MultiplePhotoTakerFragment | Factory pattern for fragment creation as recommended by Google. |
+| newInstance | Factory pattern for fragment creation as recommended by Google. |
 | onCreate | Framework override. Doesn't do much |
 
 Two member variables are important
