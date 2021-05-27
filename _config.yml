@@ -119,7 +119,7 @@ author:
   facebook         :
   foursquare       :
   github           : "ayhanavci"
-  gitlab           : 
+  gitlab           : "ayhanavci"
   docker           : "ayhanavci"
   google_plus      :
   keybase          :
@@ -135,7 +135,7 @@ author:
   vine             :
   weibo            :
   xing             : 
-  youtube          : # "https://youtube.com/c/MichaelRoseDesign"
+  youtube          : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
